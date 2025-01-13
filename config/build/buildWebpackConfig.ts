@@ -1,5 +1,4 @@
 import { BuildOptions } from "./types/config";
-import path from 'path'
 import webpack from 'webpack'
 import { buildLoaders } from "./buildLoaders";
 import { buildPlugins } from "./buildPlugins";
@@ -16,7 +15,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
     module: {
       rules: buildLoaders(options),
     },
-    resolve: buildResolvers(),
+    resolve: buildResolvers(options),
     output: {
       filename: "[name].[contenthash].js",
       path: paths.build,
