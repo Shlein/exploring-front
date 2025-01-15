@@ -1,29 +1,29 @@
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import webpack from 'webpack'
-import { BuildOptions } from './types/config'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import webpack from 'webpack';
 
-export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
+import { BuildOptions } from './types/config';
 
+export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   const svgLoader = {
     test: /\.svg$/,
-    use: ['@svgr/webpack'],
-  }
+    use: ['@svgr/webpack']
+  };
 
   const fileLoader = {
     test: /\.(png|jpg|gif)$/,
     use: [
       {
         loader: 'file-loader',
-        options: {}  
+        options: {}
       }
     ]
-  }
+  };
 
   const tsLoader = {
     test: /\.tsx?$/,
     use: 'ts-loader',
-    exclude: /node_modules/,
-  }
+    exclude: /node_modules/
+  };
 
   const sassLoader = {
     test: /\.s[ac]ss$/i,
@@ -36,21 +36,16 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
         options: {
           modules: {
             auto: (resPath: string) => Boolean(resPath.includes('.module.')),
-          localIdentName: isDev 
-            ? '[path][name]__[local--[hash:base64:8]]' 
-            : '[hash:base64:8]'
-          },
-        },
+            localIdentName: isDev
+              ? '[path][name]__[local--[hash:base64:8]]'
+              : '[hash:base64:8]'
+          }
+        }
       },
       // Compiles Sass to CSS
-      "sass-loader",
-    ],
-  }
+      'sass-loader'
+    ]
+  };
 
-  return [
-    tsLoader,
-    sassLoader,
-    svgLoader,
-    fileLoader,
-  ]
+  return [tsLoader, sassLoader, svgLoader, fileLoader];
 }
