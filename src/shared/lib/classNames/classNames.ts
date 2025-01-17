@@ -1,17 +1,12 @@
-type classNameArgs = string | { [key: string]: boolean };
+type Mods = Record<string, boolean | string>
 
-export function classNames(...args: classNameArgs[]): string {
-  return args
-    .map(el => {
-      if (typeof el === 'string') {
-        return el;
-      } else {
-        for (const key in el) {
-          if (el.hasOwnProperty(key) && !!el[key]) {
-            return key;
-          }
-        }
-      }
-    })
-    .join(' ');
+export function classNames(cls: string, mods: Mods = {}, additional: string[] = []): string {
+    return [
+        cls,
+        ...additional.filter(Boolean),
+        ...Object.entries(mods)
+            .filter(([_, value]) => Boolean(value))
+            .map(([className]) => className),
+    ]
+        .join(' ');
 }

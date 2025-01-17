@@ -8,6 +8,7 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import stylistic from '@stylistic/eslint-plugin';
 import importPlugin from 'eslint-plugin-import';
+import i18next from 'eslint-plugin-i18next';
 // import reactHooks from 'eslint-plugin-react-hooks'
 // import airbnbConfig from 'eslint-config-airbnb'
 
@@ -40,6 +41,7 @@ export default tseslint.config(
     ignores: ['node_modules/**/*', 'build/**/*', '.config/*']
   },
   js.configs.recommended,
+  i18next.configs['flat/recommended'],
   {
     languageOptions: {
       globals: {
@@ -94,6 +96,7 @@ export default tseslint.config(
       ],
       '@stylistic/object-curly-spacing': ['error', 'always'],
       '@stylistic/comma-spacing': ['error', { before: false, after: true }],
+      'max-len': ['error', { ignoreComments: true }],
 
       // Правила импорта
       // 'import/no-unresolved': 'error',
