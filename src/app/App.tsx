@@ -7,13 +7,14 @@ import './styles/index.scss';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { Suspense } from 'react';
+import { PageLoader } from 'shared/ui/PageLoader';
 
 function App() {
   const { theme } = useTheme();
 
   return (
     <div className={classNames('app', {}, [theme])}>
-      <Suspense fallback="...loading">
+      <Suspense fallback={<PageLoader />}>
         <Navbar />
         <div className="content-page">
           <Sidebar />

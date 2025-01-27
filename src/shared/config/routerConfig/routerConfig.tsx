@@ -6,7 +6,7 @@ import { RouteProps } from 'react-router-dom';
 export enum AppRoutes {
   MAIN = 'main',
   ABOUT = 'about',
-  NOT_FOUND = 'not-found',
+  NOT_FOUND = 'not_found'
 }
 
 export const RoutePaths: Record<AppRoutes, string> = {
@@ -25,7 +25,7 @@ export const routerConfig: Record<AppRoutes, RouteProps> = {
     element: <AboutPage />
   },
   [AppRoutes.NOT_FOUND]: {
-    path: RoutePaths['not-found'],
+    path: RoutePaths.not_found,
     element: <NotFoundPage />
   }
 };
