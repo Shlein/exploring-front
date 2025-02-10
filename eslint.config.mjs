@@ -52,7 +52,9 @@ export default tseslint.config(
       parserOptions: {
         project: './tsconfig.json',
         tsconfigRootDir: process.cwd(),
-        sourceType: 'module'
+        sourceType: 'module',
+        // поправить, походу не работает
+        ignoreAttribute: ['foo']
       }
     }
   },
@@ -186,5 +188,15 @@ export default tseslint.config(
 
   {
     settings: { react: { version: 'detect' } }
-  }
+  },
+  // {
+  //   overrides: [
+  //     {
+  //       files: ['**/src/**/*.test.{ts,tsx}'],
+  //       rules: {
+  //         'i18next/no-literal-string': 'off'
+  //       }
+  //     }
+  //   ]
+  // }
 );

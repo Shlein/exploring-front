@@ -15,8 +15,11 @@ export const Sidebar: FC<SidebarProps> = props => {
   const toggleCollapse = () => setCollapsed(prev => !prev);
 
   return (
-    <div className={classNames(cls.sidebar, { [cls.collapsed]: collapsed })}>
-      <button onClick={toggleCollapse}>
+    <div
+      data-testid="sidebar"
+      className={classNames(cls.sidebar, { [cls.collapsed]: collapsed })}
+    >
+      <button data-testid="sidebar-toggle" onClick={toggleCollapse}>
         {collapsed ? 'Развернуть' : 'Свернуть'}
       </button>
       <div className={cls.swithers}>
