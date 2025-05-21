@@ -2,12 +2,11 @@ import { classNames } from 'shared/lib/classNames/classNames';
 
 import { useTheme } from './providers/ThemeProvider';
 import { AppRouter } from './providers/router';
-
-import './styles/index.scss';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import { PageLoader } from 'shared/ui/PageLoader';
+import { Modal } from 'shared/ui/Modal';
 
 function App() {
   const { theme } = useTheme();
