@@ -1,0 +1,19 @@
+.Input {
+  display: flex;
+}
+
+.label {
+  margin-right: 5px;
+  // color: white;
+}
+
+.input {
+  outline: none;
+  background: transparent;
+  border: none;
+  // color: white;
+
+  &:focus {
+    outline: none;
+  }
+}

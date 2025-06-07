@@ -1,23 +1,23 @@
-@import './themes/dark.scss';
-@import './themes/normal.scss';
-@import './variables/global.scss';
-@import './reset.scss';
+@import "reset.scss";
+@import "variables/global.scss";
+@import "themes/normal.scss";
+@import "themes/dark.scss";
 
 body {
-  font-size: var(--font-m);
-  color: var(--primary-color);
+    font: var(--font-m);
+    color: var(--primary-color);
 }
 
 .app {
-  background: var(--bg-color);
-  min-height: 100vh;
+    background: var(--bg-color);
+    min-height: 100vh;
 }
 
 .content-page {
-  display: flex;
+    display: flex;
 }
 
 .page-wrapper {
-  padding: 20px;
-  flex-grow: 1;
+    flex-grow: 1;
+    padding: 20px;
 }

@@ -1,18 +1,20 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { StateSchema } from './StateSchema';
-import { CounterReducer } from 'entities/Counter/slice/CounterSlice';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { CounterReducer } from 'entities/Counter';
+import { UserReducer } from 'entities/User';
+import { LoginReducer } from 'features/AuthByUserName';
 
-export function createReduxStore(initialState: StateSchema) {
-  return configureStore<StateSchema>({
-    reducer: { counter: CounterReducer },
-    devTools: __IS_DEV__,
-    preloadedState: initialState
+const rootReducer = combineReducers({
+  counter: CounterReducer,
+  user: UserReducer,
+  login: LoginReducer
+});
+
+export const makeStore = () => {
+  return configureStore({
+    reducer: rootReducer
   });
-}
+};
 
-// export const store = createReduxStore();
-
-// Infer the `RootState` and `AppDispatch` types from the store itself
-// export type RootState = ReturnType<typeof store.getState>;
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-// export type AppDispatch = typeof store.dispatch;
+export type AppStore = ReturnType<typeof makeStore>;
+export type AppDispatch = AppStore['dispatch'];
+export type RootState = ReturnType<typeof rootReducer>;

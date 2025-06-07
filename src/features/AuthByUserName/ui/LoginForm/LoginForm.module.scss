@@ -1,0 +1,11 @@
+.LoginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0;
+  padding: 30px;
+  width: 400px;
+}
+
+.submitButton {
+  align-self: flex-end;
+}

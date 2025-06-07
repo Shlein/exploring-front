@@ -1,18 +1,17 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+'use client';
+import { useRef } from 'react';
 import { Provider } from 'react-redux';
-import { createReduxStore } from '../config/store';
-import { ReactNode } from 'react';
-import { StateSchema } from '../config/StateSchema';
+import { AppStore, makeStore } from '../config/store';
 
-interface StoreProviderProps {
-  className?: string;
-  children: ReactNode;
-  initialState?: StateSchema;
+export function StoreProvider({
+  children
+}: {
+  children: React.ReactNode;
+}) {
+  const storeRef = useRef<AppStore | null>(null);
+  if (!storeRef.current) {
+    storeRef.current = makeStore();
+  }
+
+  return <Provider store={storeRef.current}>{children}</Provider>;
 }
-
-export const StoreProvider = (props: StoreProviderProps) => {
-  const { className, children, initialState } = props;
-  const store = createReduxStore(initialState);
-
-  return <Provider store={store}>{children}</Provider>;
-};

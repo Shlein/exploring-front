@@ -12,17 +12,32 @@ interface ButtonProps
   className?: string;
   theme?: ThemeButton;
   children: React.ReactNode;
+  disabled?: boolean;
+  // size: SizeButton
+  // потом добавить размеры для кнопок
 }
 
 export const Button: FC<ButtonProps> = props => {
-  const { className, children, theme, ...otherProps } = props;
+  const {
+    className,
+    children,
+    theme,
+    disabled = false,
+    ...otherProps
+  } = props;
+
+  const mods: Record<string, boolean> = {
+    [cls[theme]]: true,
+    // [cls.square]: square,
+    // [cls[size]]: true,
+    [cls.disabled]: disabled
+  };
 
   return (
     <button
       type="button"
-      className={classNames(cls.Button, { [cls[theme]]: true }, [
-        className
-      ])}
+      className={classNames(cls.Button, mods, [className])}
+      disabled={disabled}
       {...otherProps}
     >
       {children}
