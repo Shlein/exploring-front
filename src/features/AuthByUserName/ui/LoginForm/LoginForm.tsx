@@ -1,27 +1,45 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './LoginForm.module.scss';
 import { Button, ThemeButton } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { useAppDispatch } from 'app/providers/StoreProvider/config/hooks';
 import {
+  LoginReducer,
   setLoginPassword,
   setLoginUsername
 } from 'features/AuthByUserName/model/slice/loginSlice';
-import { getLoginState } from 'features/AuthByUserName/model/selectors/loginSelectors';
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 import { loginByUsername } from 'features/AuthByUserName/model/services/loginByUsername/loginByUsername';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { useAppDispatch } from 'app/providers/StoreProvider/config/hooks';
+import { getLoginError } from 'features/AuthByUserName/model/selectors/getLoginError';
+import { getLoginUsername } from 'features/AuthByUserName/model/selectors/getLoginUsername';
+import { getLoginPassword } from 'features/AuthByUserName/model/selectors/getLoginPassword';
+import { getLoginLoading } from 'features/AuthByUserName/model/selectors/getLoginLoading';
+import {
+  ReducersList,
+  useDynamicModuleLoader
+} from 'shared/lib/useDynamicModuleLoader';
 
-interface LoginFormProps {
+import cls from './LoginForm.module.scss';
+
+export interface LoginFormProps {
   className?: string;
 }
 
-export const LoginForm = (props: LoginFormProps) => {
+const initialReducers: ReducersList = {
+  login: LoginReducer
+};
+
+const LoginForm = (props: LoginFormProps) => {
   const { className } = props;
   const dispatch = useAppDispatch();
-  const { username, password, isLoading, error } =
-    useSelector(getLoginState);
+
+  const username = useSelector(getLoginUsername);
+  const password = useSelector(getLoginPassword);
+  const isLoading = useSelector(getLoginLoading);
+  const error = useSelector(getLoginError);
+
+  useDynamicModuleLoader(initialReducers, true);
 
   const handleUsername = useCallback(
     (value: string) => dispatch(setLoginUsername(value)),
@@ -69,3 +87,5 @@ export const LoginForm = (props: LoginFormProps) => {
     </div>
   );
 };
+
+export default LoginForm;

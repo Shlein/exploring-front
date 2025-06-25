@@ -1,20 +1,37 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
+import { StateSchema } from './StateSchema';
+import { createReducerManager } from './reducerManager';
 import { CounterReducer } from 'entities/Counter';
 import { UserReducer } from 'entities/User';
-import { LoginReducer } from 'features/AuthByUserName';
 
-const rootReducer = combineReducers({
-  counter: CounterReducer,
-  user: UserReducer,
-  login: LoginReducer
-});
+export function createReduxStore(
+  initialState?: StateSchema,
+  asyncReducers?: ReducersMapObject<StateSchema>
+) {
+  const rootReducers: ReducersMapObject<StateSchema> = {
+    ...asyncReducers,
+    counter: CounterReducer,
+    user: UserReducer
+  };
 
-export const makeStore = () => {
-  return configureStore({
-    reducer: rootReducer
+  const reducerManager = createReducerManager(rootReducers);
+
+  const store = configureStore<StateSchema>({
+    reducer: reducerManager.reduce,
+    devTools: __IS_DEV__,
+    preloadedState: initialState
   });
-};
 
-export type AppStore = ReturnType<typeof makeStore>;
-export type AppDispatch = AppStore['dispatch'];
-export type RootState = ReturnType<typeof rootReducer>;
+  // @ts-ignore
+  store.reducerManager = reducerManager;
+
+  return store;
+}
+
+export type AppDispatch = ReturnType<
+  typeof createReduxStore
+>['dispatch'];
+export type AppStore = ReturnType<typeof createReduxStore>;
+export type RootState = ReturnType<
+  ReturnType<typeof createReduxStore>['getState']
+>;

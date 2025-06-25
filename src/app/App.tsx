@@ -5,8 +5,8 @@ import { Sidebar } from 'widgets/Sidebar';
 import { PageLoader } from 'shared/ui/PageLoader';
 import { AppRouter } from './providers/router';
 import { useTheme } from './providers/ThemeProvider';
-import { useAppDispatch } from './providers/StoreProvider/config/hooks';
 import { initAuthData } from 'entities/User/slice/userSlice';
+import { useAppDispatch } from './providers/StoreProvider/config/hooks';
 
 function App() {
   const { theme } = useTheme();

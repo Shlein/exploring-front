@@ -1,9 +1,5 @@
 import { FC, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-
-import cls from './Navbar.module.scss';
-import { Modal } from 'shared/ui/Modal';
 import { Button, ThemeButton } from 'shared/ui/Button';
 import { LoginModal } from 'features/AuthByUserName';
 import {
@@ -12,6 +8,8 @@ import {
 } from 'app/providers/StoreProvider/config/hooks';
 import { getUserAuthData } from 'entities/User/selectors/userSelectors';
 import { logout } from 'entities/User/slice/userSlice';
+
+import cls from './Navbar.module.scss';
 
 interface NavbarProps {
   className?: string;

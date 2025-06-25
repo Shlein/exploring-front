@@ -1,17 +1,25 @@
-'use client';
-import { useRef } from 'react';
+import { ReactNode } from 'react';
 import { Provider } from 'react-redux';
-import { AppStore, makeStore } from '../config/store';
+import { createReduxStore } from 'app/providers/StoreProvider/config/store';
+import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
+import { DeepPartial } from '@reduxjs/toolkit';
 
-export function StoreProvider({
-  children
-}: {
-  children: React.ReactNode;
-}) {
-  const storeRef = useRef<AppStore | null>(null);
-  if (!storeRef.current) {
-    storeRef.current = makeStore();
-  }
-
-  return <Provider store={storeRef.current}>{children}</Provider>;
+interface StoreProviderProps {
+    children?: ReactNode;
+    initialState?: DeepPartial<StateSchema>;
 }
+
+export const StoreProvider = (props: StoreProviderProps) => {
+    const {
+        children,
+        initialState,
+    } = props;
+
+    const store = createReduxStore(initialState as StateSchema);
+
+    return (
+        <Provider store={store}>
+            {children}
+        </Provider>
+    );
+};
