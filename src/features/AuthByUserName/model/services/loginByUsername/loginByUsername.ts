@@ -24,11 +24,14 @@ export const loginByUsername = createAsyncThunk<
       throw new Error();
     }
 
-    localStorage.setItem(USER_AUTH_KEY, JSON.stringify(response.data));
+    localStorage.setItem(
+      USER_AUTH_KEY,
+      JSON.stringify(response.data)
+    );
     thunkAPI.dispatch(setAuthData(response.data));
 
     return response.data;
   } catch (e) {
-    thunkAPI.rejectWithValue('Вы ввели неверный логин или пароль');
+    return thunkAPI.rejectWithValue('error');
   }
 });

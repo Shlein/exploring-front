@@ -1,34 +1,99 @@
-// import webpack, { RuleSetRule } from 'webpack';
-// import path from 'path';
-// import { buildCssLoader } from '../build/loaders/buildCssLoader';
-// import { BuildPaths } from '../build/types/config';
+import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
+import path from 'path';
+import { buildCssLoader } from '../build/loaders/buildCssLoader';
+import { BuildPaths } from '../build/types/config';
 
-// export default ({ config }: { config: webpack.Configuration }) => {
-//   const paths: BuildPaths = {
-//     build: '',
-//     html: '',
-//     entry: '',
-//     src: path.resolve(__dirname, '..', '..', 'src')
-//   };
-//   config.resolve?.modules?.push(paths.src);
-//   config.resolve?.extensions?.push('.ts', '.tsx');
+export default ({ config }: { config: webpack.Configuration }) => {
+  const paths: BuildPaths = {
+    build: '',
+    html: '',
+    entry: '',
+    src: path.resolve(__dirname, '..', '..', 'src')
+  };
 
-//   // eslint-disable-next-line no-param-reassign
-//   config.module.rules = config?.module?.rules?.map(
-//     (rule: RuleSetRule) => {
-//       if (/svg/.test(rule.test as string)) {
-//         return { ...rule, exclude: /\.svg$/i };
-//       }
+  // Инициализация config.resolve, если его нет
+  if (!config.resolve) {
+    config.resolve = {};
+  }
 
-//       return rule;
-//     }
-//   );
+  // Инициализация config.resolve.modules, если его нет
+  if (!config.resolve.modules) {
+    config.resolve.modules = [];
+  }
+  config.resolve.modules.push(paths.src);
 
-//   config?.module?.rules?.push({
-//     test: /\.svg$/,
-//     use: ['@svgr/webpack']
-//   });
-//   config?.module?.rules?.push(buildCssLoader(true));
+  // Инициализация config.resolve.extensions, если его нет
+  if (!config.resolve.extensions) {
+    config.resolve.extensions = [];
+  }
+  config.resolve.extensions.push('.ts', '.tsx');
 
-//   return config;
-// };
+  // Инициализация config.module, если его нет
+  if (!config.module) {
+    config.module = { rules: [] };
+  }
+
+  // Инициализация config.module.rules, если его нет
+  if (!config.module.rules) {
+    config.module.rules = [];
+  }
+
+  config.module.rules = config.module.rules.map(rule => {
+    // Игнорируем falsy-значения (кроме объектов и строки '...')
+    if (
+      !rule ||
+      typeof rule === 'boolean' ||
+      typeof rule === 'number' ||
+      rule === ''
+    ) {
+      return rule;
+    }
+
+    // Обрабатываем строку '...' (специальное значение Webpack)
+    if (rule === '...') {
+      return rule;
+    }
+
+    // Обрабатываем RuleSetRule
+    if (
+      rule.test &&
+      typeof rule.test === 'string' &&
+      /svg/.test(rule.test)
+    ) {
+      return { ...rule, exclude: /\.svg$/i };
+    }
+
+    return rule;
+  });
+
+  // Обработка правил для SVG
+  config.module.rules = (
+    config.module.rules as Array<RuleSetRule | '...'>
+  ).map(rule => {
+    if (rule === '...') return rule;
+    if (rule.test && /svg/.test(rule.test as string)) {
+      return { ...rule, exclude: /\.svg$/i };
+    }
+    return rule;
+  });
+
+  config.module.rules.push({
+    test: /\.svg$/,
+    use: ['@svgr/webpack']
+  });
+
+  config.module.rules.push(buildCssLoader(true));
+
+  // Инициализация config.plugins, если его нет
+  if (!config.plugins) {
+    config.plugins = [];
+  }
+
+  config.plugins.push(
+    new DefinePlugin({
+      __IS_DEV__: true
+    })
+  );
+
+  return config;
+};
