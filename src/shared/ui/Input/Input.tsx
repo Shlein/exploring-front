@@ -3,6 +3,7 @@ import cls from './Input.module.scss';
 import {
   ChangeEvent,
   InputHTMLAttributes,
+  memo,
   useEffect,
   useRef,
   useState
@@ -21,7 +22,7 @@ interface InputProps extends HTMLInputProps {
   autoFocus?: boolean;
 }
 
-export const Input = (props: InputProps) => {
+export const Input = memo((props: InputProps) => {
   const {
     className,
     onChange,
@@ -59,4 +60,4 @@ export const Input = (props: InputProps) => {
       />
     </div>
   );
-};
+});

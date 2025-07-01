@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, memo, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ThemeButton } from 'shared/ui/Button';
 import { LoginModal } from 'features/AuthByUserName';
@@ -15,7 +15,7 @@ interface NavbarProps {
   className?: string;
 }
 
-export const Navbar: FC<NavbarProps> = props => {
+export const Navbar: FC<NavbarProps> = memo(props => {
   const { className } = props;
   const dispatch = useAppDispatch();
   const [isAuthModal, setIsAuthModal] = useState(false);
@@ -58,4 +58,4 @@ export const Navbar: FC<NavbarProps> = props => {
       </div>
     </div>
   );
-};
+});

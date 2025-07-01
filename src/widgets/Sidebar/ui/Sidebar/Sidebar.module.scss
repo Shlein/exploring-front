@@ -4,6 +4,9 @@
   position: relative;
   background: var(--inverted-bg-color);
   transition: width 300ms;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 }
 
 .collapsed {

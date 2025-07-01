@@ -25,5 +25,13 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "firstName": "Даня",
+    "lastName": "Shlein",
+    "age": "26",
+    "currency": "rub",
+    "city": "Tomsk",
+    "username": "admin",
+    "avatar": "https://static.wikia.nocookie.net/familyfun/images/a/a3/Otto_%28Kikoriki%29.png/revision/latest?cb=20230303150720"
+  }
 }
