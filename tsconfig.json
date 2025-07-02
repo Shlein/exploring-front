@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "strict": true,
     "module": "esnext", // 👈️ set to esnext
     // ... your other options
     "outDir": "./dist/",
@@ -32,7 +33,7 @@
     // можно писать такой
     // import React from 'react';
     "allowSyntheticDefaultImports": true,
-    "strictBindCallApply": true,
+    "strictBindCallApply": true
   },
   "ts-node": {
     "compilerOptions": {
@@ -42,6 +43,7 @@
   "include": [
     "./config/jest/setupTests.ts",
     "./src/**/*.ts",
-    "./src/**/*.tsx"
-, "src/features/AuthByUserName/model/slice"  ]
+    "./src/**/*.tsx",
+    "src/features/AuthByUserName/model/slice"
+  ]
 }

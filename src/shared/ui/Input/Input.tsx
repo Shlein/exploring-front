@@ -1,13 +1,13 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './Input.module.scss';
 import {
   ChangeEvent,
   InputHTMLAttributes,
   memo,
   useEffect,
-  useRef,
-  useState
+  useRef
 } from 'react';
+
+import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
@@ -38,7 +38,7 @@ export const Input = memo((props: InputProps) => {
 
   useEffect(() => {
     if (autoFocus) {
-      ref.current.focus();
+      ref?.current?.focus();
     }
   }, [autoFocus]);
 
@@ -48,7 +48,7 @@ export const Input = memo((props: InputProps) => {
 
   return (
     <div className={classNames(cls.Input, {}, [className])}>
-      {label && <div className={cls.label}>{label}</div>}
+      {label && <div className={cls.label}>{`${label} >`}</div>}
       <input
         ref={ref}
         type={type}

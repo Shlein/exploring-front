@@ -1,5 +1,4 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 import { User } from 'entities/User';
 import { setAuthData } from 'entities/User/slice/userSlice';
 import { USER_AUTH_KEY } from 'shared/const/localStorage';
@@ -21,10 +20,7 @@ export const loginByUsername = createAsyncThunk<
   'login/loginByUsername',
   async (authData, { extra, dispatch, rejectWithValue }) => {
     try {
-      const response = await extra.api.post<User>(
-        'http://localhost:8000/login',
-        authData
-      );
+      const response = await extra.api.post<User>('/login', authData);
 
       if (!response.data) {
         throw new Error();
@@ -36,7 +32,8 @@ export const loginByUsername = createAsyncThunk<
       );
       dispatch(setAuthData(response.data));
 
-      extra.navigate('/about');
+      // extra.navigate('/about');
+
       return response.data;
     } catch (e) {
       return rejectWithValue('error');

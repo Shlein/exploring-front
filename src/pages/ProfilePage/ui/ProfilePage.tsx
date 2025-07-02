@@ -2,7 +2,13 @@ import {
   ReducersList,
   useDynamicModuleLoader
 } from 'shared/lib/useDynamicModuleLoader';
-import { ProfileReducer } from 'entities/Profile';
+import {
+  ProfileCard,
+  ProfileReducer,
+  fetchProfileData
+} from 'entities/Profile';
+import { useAppDispatch } from 'app/providers/StoreProvider/config/hooks';
+import { useEffect } from 'react';
 
 import cls from './ProfilePage.module.scss';
 
@@ -11,8 +17,18 @@ const reducers: ReducersList = {
 };
 
 function ProfilePage() {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProfileData());
+  }, []);
+
   useDynamicModuleLoader(reducers);
-  return <div>ksfjkfs</div>;
+  return (
+    <div>
+      <ProfileCard />
+    </div>
+  );
 }
 
 export default ProfilePage;

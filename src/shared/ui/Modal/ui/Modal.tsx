@@ -1,5 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './Modal.module.scss';
+import { Mods, classNames } from 'shared/lib/classNames/classNames';
 import {
   FC,
   ReactNode,
@@ -10,6 +9,8 @@ import {
 } from 'react';
 import { Portal } from 'shared/ui/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
+
+import cls from './Modal.module.scss';
 
 interface ModalProps {
   className?: string;
@@ -68,10 +69,9 @@ export const Modal: FC<ModalProps> = ({
     };
   }, [isOpen, onKeyDown]);
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [cls.opened]: isOpen,
-    [cls.isClosing]: isClosing,
-    [cls[theme]]: true
+    [cls.isClosing]: isClosing
   };
 
   if (lazy && !isMounted) return null;
