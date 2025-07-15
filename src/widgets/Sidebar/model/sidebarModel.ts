@@ -4,6 +4,7 @@ export interface ISidebarItem {
   icon?: any;
   path: string;
   text: string;
+  authOnly?: boolean;
 }
 
 export const SidebarItemsList: ISidebarItem[] = [
@@ -19,7 +20,8 @@ export const SidebarItemsList: ISidebarItem[] = [
   },
   {
     path: RoutePaths.profile,
-    text: 'Profile'
-    // icon: ''
+    text: 'Profile',
+    // icon: '',
+    authOnly: true
   }
 ];

@@ -26,12 +26,13 @@
     }
   ],
   "profile": {
-    "firstName": "Даня",
+    "firstName": "Данchik",
     "lastName": "Shlein",
     "age": "26",
-    "currency": "rub",
-    "city": "Tomsk",
+    "currency": "RUB",
+    "country": "Georgia",
+    "city": "Gomsk",
     "username": "admin",
-    "avatar": "https://static.wikia.nocookie.net/familyfun/images/a/a3/Otto_%28Kikoriki%29.png/revision/latest?cb=20230303150720"
+    "avatar": "https://i.pinimg.com/736x/19/84/51/1984513c5e878058cd1ae6b2dcde64f8.jpg"
   }
 }

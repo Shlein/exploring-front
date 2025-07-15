@@ -3,13 +3,6 @@
   border: 2px solid var(--inverted-bg-color);
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
 .editBtn {
   text-align: right;
 }
@@ -26,4 +19,14 @@
   // & input {
   //   border: 1px solid;
   // }
+}
+
+.editing {
+  border: 2px solid yellow;
+}
+
+.avatarWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }

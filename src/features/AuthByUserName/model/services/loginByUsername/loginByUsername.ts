@@ -36,7 +36,7 @@ export const loginByUsername = createAsyncThunk<
 
       return response.data;
     } catch (e) {
-      return rejectWithValue('error');
+      return rejectWithValue('Не удалось авторизироваться');
     }
   }
 );
