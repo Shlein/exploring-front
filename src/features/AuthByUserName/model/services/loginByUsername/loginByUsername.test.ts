@@ -33,7 +33,7 @@ describe('loginByUsername.test', () => {
       password: '123'
     });
 
-    expect(result.payload).toBe('error');
+    expect(result.payload).toBe('Не удалось авторизироваться');
     expect(thunk.api.post).toHaveBeenCalled();
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
     expect(result.meta.requestStatus).toBe('rejected');

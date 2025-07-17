@@ -10,14 +10,14 @@ import './app/styles/variables/global.scss';
 import './app/styles/index.scss';
 
 render(
-  <BrowserRouter>
-    <StoreProvider>
+  <StoreProvider>
+    <BrowserRouter>
       <ErrorBoundary>
         <ThemeProvider>
           <App />
         </ThemeProvider>
       </ErrorBoundary>
-    </StoreProvider>
-  </BrowserRouter>,
+    </BrowserRouter>
+  </StoreProvider>,
   document.getElementById('root')
 );

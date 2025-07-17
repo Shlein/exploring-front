@@ -22,6 +22,9 @@ import { Currency } from 'entities/Currency';
 
 import cls from './ProfilePage.module.scss';
 import { Country } from 'entities/Country';
+import { getProfileValidateErrors } from 'entities/Profile/model/selectors/getProfileValidateErrors';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { ProfileErrors } from 'entities/Profile/model/types/profileTypes';
 
 const reducers: ReducersList = {
   profile: ProfileReducer
@@ -37,6 +40,14 @@ function ProfilePage() {
   const error = useAppSelector(getProfileError);
   const isLoading = useAppSelector(getProfileIsLoading);
   const readonly = useAppSelector(getProfileReadonly);
+  const validateErrors = useAppSelector(getProfileValidateErrors);
+
+  const validateErrorsTranslates = {
+    [ProfileErrors.SERVER_ERROR]: 'Server error',
+    [ProfileErrors.INCORRECT_DATA]: 'Incorrect firstname or lastname',
+    [ProfileErrors.NO_DATA]: 'No profile data',
+    [ProfileErrors.INCORRECT_AGE]: 'Incorrect age'
+  };
 
   const onChangeFirstName = (value?: string) => {
     dispatch(profileActions.updateProfile({ firstName: value }));
@@ -96,6 +107,14 @@ function ProfilePage() {
   return (
     <div>
       <ProfileHeader />
+      {validateErrors?.length &&
+        validateErrors.map(error => (
+          <Text
+            key={error}
+            theme={TextTheme.ERROR}
+            text={validateErrorsTranslates[error]}
+          />
+        ))}
       <ProfileCard
         readonly={readonly}
         data={formData}

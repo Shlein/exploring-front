@@ -1,10 +1,10 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ISidebarItem } from 'widgets/Sidebar/model/sidebarModel';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-
-import cls from './SidebarItem.module.scss';
 import { useAppSelector } from 'app/providers/StoreProvider/config/hooks';
 import { getUserAuthData } from 'entities/User/selectors/userSelectors';
+
+import cls from './SidebarItem.module.scss';
 
 interface SidebarItemProps {
   item: ISidebarItem;
