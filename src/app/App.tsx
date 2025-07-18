@@ -6,11 +6,16 @@ import { PageLoader } from 'shared/ui/PageLoader';
 import { AppRouter } from './providers/router';
 import { useTheme } from './providers/ThemeProvider';
 import { initAuthData } from 'entities/User/slice/userSlice';
-import { useAppDispatch } from './providers/StoreProvider/config/hooks';
+import {
+  useAppDispatch,
+  useAppSelector
+} from './providers/StoreProvider/config/hooks';
+import { getUserInited } from 'entities/User/selectors/getUserInited';
 
 function App() {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
+  const initedUser = useAppSelector(getUserInited);
 
   useEffect(() => {
     dispatch(initAuthData());
@@ -22,7 +27,7 @@ function App() {
         <Navbar />
         <div className="content-page">
           <Sidebar />
-          <AppRouter />
+          {initedUser && <AppRouter />}
         </div>
       </Suspense>
     </div>
