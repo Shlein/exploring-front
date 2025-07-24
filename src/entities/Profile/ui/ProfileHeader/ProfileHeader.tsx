@@ -11,6 +11,8 @@ import cls from './ProfileHeader.module.scss';
 import { getProfileReadonly } from 'entities/Profile/model/selectors/getProfileReadonly';
 import { useCallback } from 'react';
 import { updateProfileData } from 'entities/Profile/model/services/updateProfileData';
+import { getUserAuthData } from 'entities/User/selectors/userSelectors';
+import { getProfileData } from 'entities/Profile/model/selectors/getProfileData';
 
 interface ProfileCardProps {
   className?: string;
@@ -20,6 +22,9 @@ export const ProfileHeader = (props: ProfileCardProps) => {
   const { className } = props;
   const dispatch = useAppDispatch();
   const readonly = useAppSelector(getProfileReadonly);
+  const authData = useAppSelector(getUserAuthData);
+  const profileData = useAppSelector(getProfileData);
+  const canEdit = authData?.id === profileData?.id;
 
   const onEdit = useCallback(() => {
     dispatch(profileActions.setProfileReadonly(false));
@@ -37,30 +42,34 @@ export const ProfileHeader = (props: ProfileCardProps) => {
     <div className={classNames(cls.ProfileCard, {}, [className])}>
       <div className={cls.header}>
         <Text title="Profile" className={cls.title} />
-        {readonly ? (
-          <Button
-            theme={ThemeButton.OUTLINE}
-            className={cls.editBtn}
-            onClick={onEdit}
-          >
-            Edit
-          </Button>
-        ) : (
-          <div className={cls.controls}>
-            <Button
-              theme={ThemeButton.OUTLINE}
-              className={cls.editBtn}
-              onClick={onCancelEdit}
-            >
-              Cancel
-            </Button>
-            <Button
-              theme={ThemeButton.OUTLINE}
-              className={cls.saveBtn}
-              onClick={onSave}
-            >
-              Save
-            </Button>
+        {canEdit && (
+          <div className={cls.btnsContainer}>
+            {readonly ? (
+              <Button
+                theme={ThemeButton.OUTLINE}
+                className={cls.editBtn}
+                onClick={onEdit}
+              >
+                Edit
+              </Button>
+            ) : (
+              <div className={cls.controls}>
+                <Button
+                  theme={ThemeButton.OUTLINE}
+                  className={cls.editBtn}
+                  onClick={onCancelEdit}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  theme={ThemeButton.OUTLINE}
+                  className={cls.saveBtn}
+                  onClick={onSave}
+                >
+                  Save
+                </Button>
+              </div>
+            )}
           </div>
         )}
       </div>

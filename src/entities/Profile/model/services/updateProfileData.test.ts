@@ -5,6 +5,7 @@ import { updateProfileData } from './updateProfileData';
 import { ProfileErrors } from '../types/profileTypes';
 
 const data = {
+  id: '',
   firstName: 'Данchik',
   lastName: 'Shlein',
   age: 26,

@@ -1,0 +1,23 @@
+.AddCommentForm {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid var(--primary-color);
+  margin-bottom: 15px;
+  padding: 10px;
+  align-items: center;
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+}
+
+.error {
+  margin-bottom: 5px;
+}
+
+.input {
+}
+
+.submit {
+}

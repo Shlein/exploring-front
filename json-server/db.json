@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -96,10 +98,40 @@
       "userId": "1"
     },
     {
-      "id": "3",
-      "text": "some comment 3",
       "articleId": "1",
-      "userId": "1"
+      "userId": "1",
+      "text": "fn",
+      "id": "6upUTQ6"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "sfsf",
+      "id": "AgvtucU"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "haha",
+      "id": "mcZYRMO"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "ohoho",
+      "id": "_iVE-uy"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "text",
+      "id": "bFyZkri"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "papa",
+      "id": "SvUez4E"
     }
   ],
   "users": [
@@ -112,20 +144,34 @@
     },
     {
       "id": "2",
-      "username": "user",
+      "username": "bakiHanma",
       "password": "123",
       "role": "USER",
       "avatar": "https://avatars.mds.yandex.net/i?id=d0eb7dd52e3572bc811cf2f826db115e_l-5008643-images-thumbs&n=13"
     }
   ],
-  "profile": {
-    "firstName": "Данchik",
-    "lastName": "Shlein",
-    "age": "26",
-    "currency": "RUB",
-    "country": "Georgia",
-    "city": "Gomsk",
-    "username": "admin",
-    "avatar": "https://i.pinimg.com/736x/19/84/51/1984513c5e878058cd1ae6b2dcde64f8.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "firstName": "Данchik",
+      "lastName": "Shlein",
+      "age": "26",
+      "currency": "RUB",
+      "country": "Georgia",
+      "city": "Gomsk",
+      "username": "admin",
+      "avatar": "https://i.pinimg.com/736x/19/84/51/1984513c5e878058cd1ae6b2dcde64f8.jpg"
+    },
+    {
+      "id": "2",
+      "firstName": "Baki",
+      "lastName": "Hanma",
+      "age": "17",
+      "currency": "USD",
+      "country": "Georgia",
+      "city": "Tokio",
+      "username": "bakiHanma",
+      "avatar": "https://avatars.mds.yandex.net/i?id=d0eb7dd52e3572bc811cf2f826db115e_l-5008643-images-thumbs&n=13"
+    }
+  ]
 }

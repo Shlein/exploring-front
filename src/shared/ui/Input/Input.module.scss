@@ -4,14 +4,18 @@
 
 .label {
   margin-right: 5px;
-  // color: white;
+  color: var(--primary-color);
 }
 
 .input {
   outline: none;
   background: transparent;
   border: none;
-  // color: white;
+  color: var(--primary-color);
+
+  &::placeholder {
+    color: var(--primary-color);
+  }
 
   &:focus {
     outline: none;

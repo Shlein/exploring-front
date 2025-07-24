@@ -19,12 +19,13 @@ import { getProfileIsLoading } from 'entities/Profile/model/selectors/getProfile
 import { getProfileReadonly } from 'entities/Profile/model/selectors/getProfileReadonly';
 import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm';
 import { Currency } from 'entities/Currency';
-
-import cls from './ProfilePage.module.scss';
 import { Country } from 'entities/Country';
 import { getProfileValidateErrors } from 'entities/Profile/model/selectors/getProfileValidateErrors';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ProfileErrors } from 'entities/Profile/model/types/profileTypes';
+import { useParams } from 'react-router-dom';
+
+import cls from './ProfilePage.module.scss';
 
 const reducers: ReducersList = {
   profile: ProfileReducer
@@ -32,8 +33,12 @@ const reducers: ReducersList = {
 
 function ProfilePage() {
   const dispatch = useAppDispatch();
+  const { id } = useParams<{ id: string }>();
+
   useEffect(() => {
-    dispatch(fetchProfileData());
+    if (id) {
+      dispatch(fetchProfileData(id));
+    }
   }, []);
 
   const formData = useAppSelector(getProfileForm);

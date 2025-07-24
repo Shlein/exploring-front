@@ -9,6 +9,10 @@
 .header {
   display: flex;
   align-items: center;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .avatar {
@@ -18,4 +22,8 @@
 .text {
   margin-top: 10px;
   text-align: left;
+}
+
+.loading {
+  border: none;
 }
