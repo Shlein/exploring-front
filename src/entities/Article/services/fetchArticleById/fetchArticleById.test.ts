@@ -12,6 +12,12 @@ const data: Article = {
   subtitle: 'subtitle',
   type: [ArticleType.ECONOMICS],
   img: 'img.jpg',
+  user: {
+    id: '1',
+    username: 'admin',
+    avatar:
+      'https://i.pinimg.com/736x/19/84/51/1984513c5e878058cd1ae6b2dcde64f8.jpg'
+  },
   blocks: [
     {
       id: '1',
