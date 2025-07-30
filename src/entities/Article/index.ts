@@ -7,3 +7,4 @@ export {
 } from './model/slice/articleDetailsSlice';
 export { ArticleView } from './model/types/ArticleDetailsTypes';
 export { ArticleList } from './ui/ArticleList';
+export { ArticleViewToggler } from './ui/ArticleViewToggler/ArticleViewToggler';

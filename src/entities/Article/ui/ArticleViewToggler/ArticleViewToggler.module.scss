@@ -1,0 +1,9 @@
+.ArticleViewToggler {
+  display: flex;
+  gap: 15px;
+  justify-content: end;
+}
+
+.notSelected {
+  fill: var(--secondary-color);
+}

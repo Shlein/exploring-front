@@ -4,6 +4,6 @@ export const ArticlesPageLazy = lazy(
   () =>
     new Promise(res => {
       // @ts-expect-error because i ll change this import
-      setTimeout(() => res(import('./ArticlesPage')), 1500);
+      setTimeout(() => res(import('./ArticlesPage')), 400);
     })
 );
