@@ -11,5 +11,6 @@ export {
   getArticlesPageView,
   getArticlesPageHasMore,
   getArticlesPageLimit,
-  getArticlesPagePageNumber
+  getArticlesPagePageNumber,
+  getArticlesPageInited
 } from './model/selectors/articlesPageSelectors';

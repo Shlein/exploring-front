@@ -15,18 +15,17 @@ import {
   useAppDispatch,
   useAppSelector
 } from 'app/providers/StoreProvider/config/hooks';
-import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
 import {
   getArticlesPageError,
-  getArticlesPageHasMore,
+  getArticlesPageInited,
   getArticlesPageIsLoading,
-  getArticlesPagePageNumber,
   getArticlesPageView
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
-
-import cls from './ArticlesPage.module.scss';
 import { Page } from 'shared/ui/Page';
 import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
+
+import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
   className?: string;
@@ -38,24 +37,20 @@ const reducers: ReducersList = {
 
 const ArticlesPage = (props: ArticlesPageProps) => {
   const { className } = props;
-  useDynamicModuleLoader(reducers);
+  useDynamicModuleLoader(reducers, false);
   const dispatch = useAppDispatch();
   const articles = useAppSelector(getArticles.selectAll);
   const isLoading = useAppSelector(getArticlesPageIsLoading);
   const error = useAppSelector(getArticlesPageError);
   const view = useAppSelector(getArticlesPageView);
+  const inited = useAppSelector(getArticlesPageInited);
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(articlesPageActions.initState());
-    dispatch(
-      fetchArticlesList({
-        page: 1
-      })
-    );
+    dispatch(initArticlesPage());
   }, [dispatch]);
 
   const toggleView = useCallback(
