@@ -11,9 +11,7 @@ export const AppRouter = memo(() => {
   const renderWithWrapper = useCallback(
     (route: AppRouterProps, key: any) => {
       const element = (
-        <Suspense fallback={<PageLoader />}>
-          <div className="page-wrapper">{route.element}</div>
-        </Suspense>
+        <Suspense fallback={<PageLoader />}>{route.element}</Suspense>
       );
 
       return (

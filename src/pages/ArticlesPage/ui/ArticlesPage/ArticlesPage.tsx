@@ -18,11 +18,15 @@ import {
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
 import {
   getArticlesPageError,
+  getArticlesPageHasMore,
   getArticlesPageIsLoading,
+  getArticlesPagePageNumber,
   getArticlesPageView
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 
 import cls from './ArticlesPage.module.scss';
+import { Page } from 'shared/ui/Page';
+import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 
 interface ArticlesPageProps {
   className?: string;
@@ -41,9 +45,17 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   const error = useAppSelector(getArticlesPageError);
   const view = useAppSelector(getArticlesPageView);
 
+  const onLoadNextPart = useCallback(() => {
+    dispatch(fetchNextArticlesPage());
+  }, [dispatch]);
+
   useEffect(() => {
-    dispatch(fetchArticlesList());
     dispatch(articlesPageActions.initState());
+    dispatch(
+      fetchArticlesList({
+        page: 1
+      })
+    );
   }, [dispatch]);
 
   const toggleView = useCallback(
@@ -54,14 +66,17 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   );
 
   return (
-    <div className={classNames(cls.ArticlesPage, {}, [className])}>
+    <Page
+      className={classNames(cls.ArticlesPage, {}, [className])}
+      onScrollEnd={onLoadNextPart}
+    >
       <ArticleViewToggler view={view} onViewClick={toggleView} />
       <ArticleList
         isLoading={isLoading}
         view={view}
         articles={articles}
       />
-    </div>
+    </Page>
   );
 };
 

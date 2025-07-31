@@ -21,6 +21,7 @@ import { AddCommentForm } from 'features/AddComment';
 import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle';
 import { Button } from 'shared/ui/Button';
 import { RoutePaths } from 'shared/config/routerConfig/routerConfig';
+import { Page } from 'shared/ui/Page';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -56,18 +57,18 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
   if (!id) {
     return (
-      <div
+      <Page
         className={classNames(cls.ArticleDetailsPage, {}, [
           className
         ])}
       >
         <Text title="Статья не найдена" theme={TextTheme.ERROR} />
-      </div>
+      </Page>
     );
   }
 
   return (
-    <div
+    <Page
       className={classNames(cls.ArticleDetailsPage, {}, [className])}
     >
       <Button onClick={onBackToList}>Назад к списку</Button>
@@ -78,7 +79,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         isLoading={commentsIsLoading}
         comments={comments}
       />
-    </div>
+    </Page>
   );
 };
 

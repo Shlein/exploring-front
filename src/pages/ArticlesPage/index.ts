@@ -8,5 +8,8 @@ export { fetchArticlesList } from './model/services/fetchArticlesList/fetchArtic
 export {
   getArticlesPageError,
   getArticlesPageIsLoading,
-  getArticlesPageView
+  getArticlesPageView,
+  getArticlesPageHasMore,
+  getArticlesPageLimit,
+  getArticlesPagePageNumber
 } from './model/selectors/articlesPageSelectors';

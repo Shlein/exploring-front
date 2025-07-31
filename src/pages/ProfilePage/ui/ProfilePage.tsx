@@ -26,6 +26,7 @@ import { ProfileErrors } from 'entities/Profile/model/types/profileTypes';
 import { useParams } from 'react-router-dom';
 
 import cls from './ProfilePage.module.scss';
+import { Page } from 'shared/ui/Page';
 
 const reducers: ReducersList = {
   profile: ProfileReducer
@@ -110,7 +111,7 @@ function ProfilePage() {
 
   useDynamicModuleLoader(reducers);
   return (
-    <div>
+    <Page>
       <ProfileHeader />
       {validateErrors?.length &&
         validateErrors.map(error => (
@@ -134,7 +135,7 @@ function ProfilePage() {
         onChangeCurrency={onChangeCurrency}
         onChangeCountry={onChangeCountry}
       />
-    </div>
+    </Page>
   );
 }
 
