@@ -26,7 +26,7 @@ import { ProfileErrors } from 'entities/Profile/model/types/profileTypes';
 import { useParams } from 'react-router-dom';
 
 import cls from './ProfilePage.module.scss';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widgets/Page';
 
 const reducers: ReducersList = {
   profile: ProfileReducer

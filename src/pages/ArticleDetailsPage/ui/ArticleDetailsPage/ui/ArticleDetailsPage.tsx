@@ -21,7 +21,7 @@ import { AddCommentForm } from 'features/AddComment';
 import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle';
 import { Button } from 'shared/ui/Button';
 import { RoutePaths } from 'shared/config/routerConfig/routerConfig';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widgets/Page';
 
 interface ArticleDetailsPageProps {
   className?: string;
