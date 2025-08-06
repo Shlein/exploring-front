@@ -15,25 +15,27 @@ import { ArticleTextBlockComponent } from '../../ArticleTextBlockComponent/Artic
 import { Button, ThemeButton } from 'shared/ui/Button';
 
 import cls from './ArticleListItem.module.scss';
-import { useCallback } from 'react';
+import { HTMLAttributeAnchorTarget, useCallback } from 'react';
 import { RoutePaths } from 'shared/config/routerConfig/routerConfig';
 import { useNavigate } from 'react-router-dom';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 
 interface ArticleListItemProps {
   className?: string;
   article: Article;
   view: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem = (props: ArticleListItemProps) => {
-  const { className, article, view } = props;
+  const { className, article, view, target } = props;
   const [isHover, bindHover] = useHover();
 
   const navigate = useNavigate();
 
-  const onOpenArticle = useCallback(() => {
-    navigate(RoutePaths.article_details + article.id);
-  }, [article.id, navigate]);
+  // const onOpenArticle = useCallback(() => {
+  //   navigate(RoutePaths.article_details + article.id);
+  // }, [article.id, navigate]);
 
   const types = (
     <Text text={article.type.join(', ')} className={cls.types} />
@@ -80,12 +82,14 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
             />
           )}
           <div className={cls.footer}>
-            <Button
-              onClick={onOpenArticle}
-              theme={ThemeButton.OUTLINE}
+            <AppLink
+              target={target}
+              to={RoutePaths.article_details + article.id}
             >
-              Читать далее...
-            </Button>
+              <Button theme={ThemeButton.OUTLINE}>
+                Читать далее...
+              </Button>
+            </AppLink>
             {views}
           </div>
         </Card>
@@ -94,12 +98,13 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
   }
 
   return (
-    <div
+    <AppLink
+      target={target}
+      to={RoutePaths.article_details + article.id}
       className={classNames(cls.ArticleListItem, {}, [
         className,
         cls[view]
       ])}
-      onClick={onOpenArticle}
       {...bindHover}
     >
       <Card className={cls.card}>
@@ -117,6 +122,6 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
         </div>
         <Text text={article.title} className={cls.title} />
       </Card>
-    </div>
+    </AppLink>
   );
 };

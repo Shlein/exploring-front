@@ -5,7 +5,7 @@ import {
   ArticleView
 } from 'entities/Article/model/types/ArticleDetailsTypes';
 import { ArticleListItem } from '../../ArticleListItem';
-import { memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { ArticleListItemSkeleton } from '../../ArticleListItem/ui/ArticleListItemSkeleton';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 
@@ -14,6 +14,7 @@ interface ArticleListProps {
   articles: Article[];
   isLoading?: boolean;
   view?: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const getSkeletons = (view: ArticleView) => {
@@ -33,7 +34,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
     className,
     articles,
     isLoading,
-    view = ArticleView.SMALL
+    view = ArticleView.SMALL,
+    target
   } = props;
 
   const renderArticle = (article: Article) => (
@@ -42,6 +44,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
       view={view}
       key={article.id}
       className={cls.card}
+      target={target}
     />
   );
 

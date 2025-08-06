@@ -12,7 +12,11 @@ import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { NavigateOptions, To } from 'react-router-dom';
 import { ArticleDetailsSchema } from 'entities/Article';
-import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
+import {
+  ArticleDetailsCommentsSchema,
+  ArticleDetailsPageSchema,
+  ArticleDetailsRecommendationsSchema
+} from 'pages/ArticleDetailsPage';
 import { AddCommentSchema } from 'features/AddComment';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { UISchema } from 'features/UI/model/types/UISchema';
@@ -26,7 +30,7 @@ export interface StateSchema {
   login?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
-  articleDetailsComments?: ArticleDetailsCommentsSchema;
+  articleDetailsPage?: ArticleDetailsPageSchema;
   addComment?: AddCommentSchema;
   articlePage?: ArticlesPageSchema;
 }

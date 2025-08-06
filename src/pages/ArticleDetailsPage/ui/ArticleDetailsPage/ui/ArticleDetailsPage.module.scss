@@ -1,3 +1,10 @@
 .ArticleDetailsPage {
   // max-width: calc(100wv - var(--sidebar-width));
 }
+
+.recommendations {
+  margin-top: 20px;
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
