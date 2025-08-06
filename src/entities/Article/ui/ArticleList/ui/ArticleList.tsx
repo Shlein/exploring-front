@@ -7,6 +7,7 @@ import {
 import { ArticleListItem } from '../../ArticleListItem';
 import { memo } from 'react';
 import { ArticleListItemSkeleton } from '../../ArticleListItem/ui/ArticleListItemSkeleton';
+import { Text, TextSize } from 'shared/ui/Text/Text';
 
 interface ArticleListProps {
   className?: string;
@@ -43,6 +44,22 @@ export const ArticleList = memo((props: ArticleListProps) => {
       className={cls.card}
     />
   );
+
+  if (!isLoading && !articles.length) {
+    return (
+      <div
+        className={classNames(cls.ArticleList, {}, [
+          className,
+          cls[view]
+        ])}
+      >
+        <Text
+          title="Статей такого типа не нашлось"
+          size={TextSize.L}
+        />
+      </div>
+    );
+  }
 
   return (
     <div

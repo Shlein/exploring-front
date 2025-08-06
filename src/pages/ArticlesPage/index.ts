@@ -12,5 +12,10 @@ export {
   getArticlesPageHasMore,
   getArticlesPageLimit,
   getArticlesPagePageNumber,
-  getArticlesPageInited
+  getArticlesPageInited,
+  getArticlesPageOrder,
+  getArticlesPageSearch,
+  getArticlesPageSort,
+  getArticlesPageType
 } from './model/selectors/articlesPageSelectors';
+export { ArticlePageFilters } from './ui/ArticlePageFilters/ArticlePageFilters';

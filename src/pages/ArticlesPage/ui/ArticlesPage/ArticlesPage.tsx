@@ -26,6 +26,8 @@ import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNe
 import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
 
 import cls from './ArticlesPage.module.scss';
+import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';
+import { useSearchParams } from 'react-router-dom';
 
 interface ArticlesPageProps {
   className?: string;
@@ -44,32 +46,27 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   const error = useAppSelector(getArticlesPageError);
   const view = useAppSelector(getArticlesPageView);
   const inited = useAppSelector(getArticlesPageInited);
+  const [searchParams] = useSearchParams();
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(initArticlesPage());
+    dispatch(initArticlesPage(searchParams));
   }, [dispatch]);
-
-  const toggleView = useCallback(
-    (view: ArticleView) => {
-      dispatch(articlesPageActions.setView(view));
-    },
-    [dispatch]
-  );
 
   return (
     <Page
       className={classNames(cls.ArticlesPage, {}, [className])}
       onScrollEnd={onLoadNextPart}
     >
-      <ArticleViewToggler view={view} onViewClick={toggleView} />
+      <ArticlePageFilters />
       <ArticleList
         isLoading={isLoading}
         view={view}
         articles={articles}
+        className={cls.list}
       />
     </Page>
   );

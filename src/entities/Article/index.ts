@@ -8,3 +8,5 @@ export {
 export { ArticleView } from './model/types/ArticleDetailsTypes';
 export { ArticleList } from './ui/ArticleList';
 export { ArticleViewToggler } from './ui/ArticleViewToggler/ArticleViewToggler';
+export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector';
+export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';
