@@ -10,6 +10,9 @@ import { getUserAuthData } from 'entities/User/selectors/userSelectors';
 import { logout } from 'entities/User/slice/userSlice';
 
 import cls from './Navbar.module.scss';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { RoutePaths } from 'shared/config/routerConfig/routerConfig';
 
 interface NavbarProps {
   className?: string;
@@ -36,11 +39,25 @@ export const Navbar: FC<NavbarProps> = memo(props => {
   if (authData) {
     return (
       <div className={classNames(cls.navbar, {}, [className])}>
-        <div className={cls.links}>
-          <Button theme={ThemeButton.CLEAR} onClick={handleLogout}>
-            Выйти
-          </Button>
-        </div>
+        <Text
+          className={cls.appName}
+          title="MagerApp"
+          theme={TextTheme.INVERTED}
+        />
+        <AppLink
+          className={cls.createLink}
+          to={RoutePaths.article_create}
+          theme={AppLinkTheme.SECONDARY}
+        >
+          Создать статью
+        </AppLink>
+        <Button
+          className={cls.logoutBtn}
+          theme={ThemeButton.CLEAR}
+          onClick={handleLogout}
+        >
+          Выйти
+        </Button>
       </div>
     );
   }

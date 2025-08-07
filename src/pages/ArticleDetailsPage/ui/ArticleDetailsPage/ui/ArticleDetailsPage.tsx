@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback, useEffect } from 'react';
 import { ArticleDetails, ArticleList } from 'entities/Article';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -14,8 +14,6 @@ import { getArticleCommentsIsLoading } from 'pages/ArticleDetailsPage/model/sele
 import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId';
 import { AddCommentForm } from 'features/AddComment';
 import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle';
-import { Button } from 'shared/ui/Button';
-import { RoutePaths } from 'shared/config/routerConfig/routerConfig';
 import { Page } from 'widgets/Page';
 import { getArticleRecommendations } from 'pages/ArticleDetailsPage/model/slice/ActicleDetailsRecommendationsSlice';
 import { getArticleDetailsRecommendationsIsLoading } from 'pages/ArticleDetailsPage/model/selectors/recommendations';
@@ -23,6 +21,7 @@ import { fetchArticleRecommendations } from 'pages/ArticleDetailsPage/model/serv
 import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slice';
 
 import cls from './ArticleDetailsPage.module.scss';
+import { ArticleDetailsPageHeader } from '../../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -45,7 +44,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const recommendationsIsLoading = useSelector(
     getArticleDetailsRecommendationsIsLoading
   );
-  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
@@ -58,10 +56,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     },
     [dispatch]
   );
-
-  const onBackToList = useCallback(() => {
-    navigate(RoutePaths.articles);
-  }, [navigate]);
 
   if (!id) {
     return (
@@ -79,7 +73,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     <Page
       className={classNames(cls.ArticleDetailsPage, {}, [className])}
     >
-      <Button onClick={onBackToList}>Назад к списку</Button>
+      <ArticleDetailsPageHeader />
       <ArticleDetails id={id} />
       <Text
         className={cls.recommendationsTitle}

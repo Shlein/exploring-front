@@ -11,3 +11,5 @@ export { fetchArticleRecommendations } from './model/services/fetchArticleRecomm
 export { ArticleDetailsPageSchema } from './model/types/index';
 
 export { articleDetailsPageReducer } from './model/slice/index';
+
+export { ArticleDetailsPageHeader } from './ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
