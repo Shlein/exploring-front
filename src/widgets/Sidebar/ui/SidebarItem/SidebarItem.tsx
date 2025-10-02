@@ -1,8 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { useAppSelector } from 'app/providers/StoreProvider/config/hooks';
 import { getUserAuthData } from 'entities/User/selectors/userSelectors';
-import { ISidebarItem } from 'widgets/Sidebar/model/types/sidebar';
+import { ISidebarItem } from '../../model/types/sidebar';
 
 import cls from './SidebarItem.module.scss';
 
@@ -12,7 +11,7 @@ interface SidebarItemProps {
 }
 
 export const SidebarItem = (props: SidebarItemProps) => {
-  const { item, collapsed } = props;
+  const { item } = props;
   const isAuth = useAppSelector(getUserAuthData);
 
   if (!isAuth && item.authOnly) {

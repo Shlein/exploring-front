@@ -9,8 +9,7 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 import stylistic from '@stylistic/eslint-plugin';
 import importPlugin from 'eslint-plugin-import';
 import i18next from 'eslint-plugin-i18next';
-// import reactHooks from 'eslint-plugin-react-hooks'
-// import airbnbConfig from 'eslint-config-airbnb'
+import foldersControlFsdPlugin from 'eslint-plugin-folders-control-fsd';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default tseslint.config(
@@ -23,18 +22,17 @@ export default tseslint.config(
       ...eslintConfigPrettier.rules
     }
   },
-  // { languageOptions: { globals: globals.browser } },
   {
     plugins: {
-      tseslint,
-      pluginJs,
+      // Правильное подключение плагинов
+      '@typescript-eslint': tseslint.plugin,
       react: eslintReact,
-      reactRefresh,
-      eslintPrettierPlugin,
+      'react-refresh': reactRefresh,
+      prettier: eslintPrettierPlugin,
       '@stylistic': stylistic,
-      import: importPlugin
-      // "eslint-plugin-react-hooks": "^5.1.0",
-      // reactHooks,
+      import: importPlugin,
+      // i18next: i18next,
+      'folders-control-fsd': foldersControlFsdPlugin // ← исправлено имя
     }
   },
   {
@@ -52,15 +50,12 @@ export default tseslint.config(
       parserOptions: {
         project: './tsconfig.json',
         tsconfigRootDir: process.cwd(),
-        sourceType: 'module',
-        // поправить, походу не работает
-        ignoreAttribute: ['foo']
+        sourceType: 'module'
       }
     }
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
-  // airbnbConfig.config,
   eslintReact.configs.flat.recommended,
   {
     rules: {
@@ -68,10 +63,10 @@ export default tseslint.config(
       'react/jsx-uses-react': 'off',
       'react/no-deprecated': 'warn',
 
-      // Правила, близкие к Airbnb
+      // Правильное имя правила для вашего плагина
+      'folders-control-fsd/path-checker': 'error', // ← исправлено имя правила
 
       // Typescript-специфичные правила
-      // '@typescript-eslint/explicit-function-return-type': 'error',
       '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/no-unused-vars': 'warn',
       '@stylistic/member-delimiter-style': [
@@ -97,11 +92,13 @@ export default tseslint.config(
         }
       ],
       '@stylistic/object-curly-spacing': ['error', 'always'],
-      '@stylistic/comma-spacing': ['error', { before: false, after: true }],
+      '@stylistic/comma-spacing': [
+        'error',
+        { before: false, after: true }
+      ],
       'max-len': ['error', { ignoreComments: true }],
 
       // Правила импорта
-      // 'import/no-unresolved': 'error',
       'import/named': 'error',
       'import/default': 'error',
       'import/namespace': 'error',
@@ -123,7 +120,7 @@ export default tseslint.config(
         }
       ],
 
-      // Правила для функций и классов
+      // Остальные правила...
       'class-methods-use-this': 'error',
       'no-useless-constructor': 'error',
       'no-empty-function': [
@@ -135,14 +132,10 @@ export default tseslint.config(
       'prefer-arrow-callback': 'error',
       'arrow-parens': ['error', 'always'],
       'arrow-body-style': ['error', 'as-needed'],
-
-      // Ограничения на сложность и размер
       complexity: ['warn', 10],
       'max-depth': ['warn', 4],
       'max-lines-per-function': ['warn', 50],
       'max-params': ['warn', 3],
-
-      // Правила безопасности и best practices
       'no-console': 'warn',
       'no-debugger': 'error',
       'no-alert': 'error',
@@ -154,19 +147,13 @@ export default tseslint.config(
           object: true
         }
       ],
-
-      // Строгие правила объектов и массивов
       'no-array-constructor': 'error',
       'no-new-object': 'error',
       'object-shorthand': ['error', 'always'],
       'prefer-object-spread': 'error',
-
-      // Правила переменных
       'one-var': ['error', 'never'],
       'no-multi-assign': 'error',
       'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
-
-      // Правила сравнения
       eqeqeq: ['error', 'always'],
       'no-eq-null': 'error'
     }
@@ -182,21 +169,12 @@ export default tseslint.config(
     ],
     rules: {
       'max-lines-per-function': 'off',
-      '@typescript-eslint/no-explicit-any': 'off'
+      '@typescript-eslint/no-explicit-any': 'off',
+      'folders-control-fsd/path-checker': 'off' // ← отключаем правило для тестов
     }
   },
 
   {
     settings: { react: { version: 'detect' } }
-  },
-  // {
-  //   overrides: [
-  //     {
-  //       files: ['**/src/**/*.test.{ts,tsx}'],
-  //       rules: {
-  //         'i18next/no-literal-string': 'off'
-  //       }
-  //     }
-  //   ]
-  // }
+  }
 );
