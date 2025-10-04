@@ -21,6 +21,7 @@ import {
 } from 'shared/lib/useDynamicModuleLoader';
 
 import cls from './AddCommentForm.module.scss';
+import { HStack } from 'shared/ui/Stack';
 
 export interface AddCommentFormProps {
   className?: string;
@@ -52,7 +53,11 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
   }, [handleSetCommentText, text, onSendComment]);
 
   return (
-    <div className={classNames(cls.AddCommentForm, {}, [className])}>
+    <HStack
+      justify="between"
+      max
+      className={classNames(cls.AddCommentForm, {}, [className])}
+    >
       <div className={cls.control}>
         {error && (
           <Text
@@ -72,7 +77,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
       <Button onClick={onSendCommentHandler} className={cls.submit}>
         Отправить
       </Button>
-    </div>
+    </HStack>
   );
 });
 

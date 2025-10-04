@@ -3,24 +3,6 @@
   border: 2px solid var(--inverted-bg-color);
 }
 
-.editBtn {
-  text-align: right;
-}
-
-.title {
-  margin-bottom: 20px;
-}
-
-.data {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-
-  // & input {
-  //   border: 1px solid;
-  // }
-}
-
 .editing {
   border: 2px solid yellow;
 }

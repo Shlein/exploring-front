@@ -13,6 +13,7 @@ import { useCallback } from 'react';
 import { updateProfileData } from 'entities/Profile/model/services/updateProfileData';
 import { getUserAuthData } from 'entities/User/selectors/userSelectors';
 import { getProfileData } from 'entities/Profile/model/selectors/getProfileData';
+import { HStack } from 'shared/ui/Stack';
 
 interface ProfileCardProps {
   className?: string;
@@ -39,40 +40,42 @@ export const ProfileHeader = (props: ProfileCardProps) => {
   }, [dispatch]);
 
   return (
-    <div className={classNames(cls.ProfileCard, {}, [className])}>
-      <div className={cls.header}>
-        <Text title="Profile" className={cls.title} />
-        {canEdit && (
-          <div className={cls.btnsContainer}>
-            {readonly ? (
+    <HStack
+      max
+      justify="between"
+      className={classNames('', {}, [className])}
+    >
+      <Text title="Profile" className={cls.title} />
+      {canEdit && (
+        <>
+          {readonly ? (
+            <Button
+              theme={ThemeButton.OUTLINE}
+              className={cls.editBtn}
+              onClick={onEdit}
+            >
+              Edit
+            </Button>
+          ) : (
+            <HStack gap="8">
               <Button
                 theme={ThemeButton.OUTLINE}
                 className={cls.editBtn}
-                onClick={onEdit}
+                onClick={onCancelEdit}
               >
-                Edit
+                Cancel
               </Button>
-            ) : (
-              <div className={cls.controls}>
-                <Button
-                  theme={ThemeButton.OUTLINE}
-                  className={cls.editBtn}
-                  onClick={onCancelEdit}
-                >
-                  Cancel
-                </Button>
-                <Button
-                  theme={ThemeButton.OUTLINE}
-                  className={cls.saveBtn}
-                  onClick={onSave}
-                >
-                  Save
-                </Button>
-              </div>
-            )}
-          </div>
-        )}
-      </div>
-    </div>
+              <Button
+                theme={ThemeButton.OUTLINE}
+                className={cls.saveBtn}
+                onClick={onSave}
+              >
+                Save
+              </Button>
+            </HStack>
+          )}
+        </>
+      )}
+    </HStack>
   );
 };

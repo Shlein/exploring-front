@@ -27,6 +27,7 @@ import { useParams } from 'react-router-dom';
 
 import cls from './ProfilePage.module.scss';
 import { Page } from 'widgets/Page';
+import { VStack } from 'shared/ui/Stack';
 
 const reducers: ReducersList = {
   profile: ProfileReducer
@@ -112,29 +113,31 @@ function ProfilePage() {
   useDynamicModuleLoader(reducers);
   return (
     <Page>
-      <ProfileHeader />
-      {validateErrors?.length &&
-        validateErrors.map(error => (
-          <Text
-            key={error}
-            theme={TextTheme.ERROR}
-            text={validateErrorsTranslates[error]}
-          />
-        ))}
-      <ProfileCard
-        readonly={readonly}
-        data={formData}
-        isLoading={isLoading}
-        error={error}
-        onChangeFirstName={onChangeFirstName}
-        onChangeLastName={onChangeLastName}
-        onChangeAge={onChangeAge}
-        onChangeCity={onChangeCity}
-        onChangeUsername={onChangeUsername}
-        onChangeAvatar={onChangeAvatar}
-        onChangeCurrency={onChangeCurrency}
-        onChangeCountry={onChangeCountry}
-      />
+      <VStack max gap="16">
+        <ProfileHeader />
+        {validateErrors?.length &&
+          validateErrors.map(error => (
+            <Text
+              key={error}
+              theme={TextTheme.ERROR}
+              text={validateErrorsTranslates[error]}
+            />
+          ))}
+        <ProfileCard
+          readonly={readonly}
+          data={formData}
+          isLoading={isLoading}
+          error={error}
+          onChangeFirstName={onChangeFirstName}
+          onChangeLastName={onChangeLastName}
+          onChangeAge={onChangeAge}
+          onChangeCity={onChangeCity}
+          onChangeUsername={onChangeUsername}
+          onChangeAvatar={onChangeAvatar}
+          onChangeCurrency={onChangeCurrency}
+          onChangeCountry={onChangeCountry}
+        />
+      </VStack>
     </Page>
   );
 }

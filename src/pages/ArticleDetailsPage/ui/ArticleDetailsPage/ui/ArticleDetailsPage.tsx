@@ -22,6 +22,7 @@ import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slice'
 
 import cls from './ArticleDetailsPage.module.scss';
 import { ArticleDetailsPageHeader } from '../../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { VStack } from 'shared/ui/Stack';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -73,24 +74,26 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     <Page
       className={classNames(cls.ArticleDetailsPage, {}, [className])}
     >
-      <ArticleDetailsPageHeader />
-      <ArticleDetails id={id} />
-      <Text
-        className={cls.recommendationsTitle}
-        title="Рекомендации: "
-      />
-      <ArticleList
-        isLoading={recommendationsIsLoading}
-        articles={recommendations}
-        className={cls.recommendations}
-        target="_blank"
-      />
-      <Text className={cls.commentTitle} title="Комментарии" />
-      <AddCommentForm onSendComment={onSendComment} />
-      <CommentList
-        isLoading={commentsIsLoading}
-        comments={comments}
-      />
+      <VStack gap="16" max justify={'center'}>
+        <ArticleDetailsPageHeader />
+        <ArticleDetails id={id} />
+        <Text
+          className={cls.recommendationsTitle}
+          title="Рекомендации: "
+        />
+        <ArticleList
+          isLoading={recommendationsIsLoading}
+          articles={recommendations}
+          className={cls.recommendations}
+          target="_blank"
+        />
+        <Text className={cls.commentTitle} title="Комментарии" />
+        <AddCommentForm onSendComment={onSendComment} />
+        <CommentList
+          isLoading={commentsIsLoading}
+          comments={comments}
+        />
+      </VStack>
     </Page>
   );
 };
