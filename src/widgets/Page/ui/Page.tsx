@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './Page.module.scss';
 import {
   MutableRefObject,
   ReactNode,
@@ -16,6 +15,8 @@ import { getUIScrollByPath, uiActions } from 'features/UI';
 import { useLocation } from 'react-router-dom';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
+
+import cls from './Page.module.scss';
 
 interface PageProps {
   className?: string;

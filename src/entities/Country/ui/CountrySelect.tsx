@@ -4,6 +4,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 
 import cls from './CurrencySelect.module.scss';
 import { Country } from '../model/types/country';
+import { ListBox } from 'shared/ui/ListBox';
 
 interface CountrySelectProps {
   className?: string;
@@ -13,10 +14,10 @@ interface CountrySelectProps {
 }
 
 const options = [
-  { name: Country.Armenia, value: Country.Armenia },
-  { name: Country.Belarus, value: Country.Belarus },
-  { name: Country.Georgia, value: Country.Georgia },
-  { name: Country.Russia, value: Country.Russia }
+  { value: Country.Armenia, content: Country.Armenia },
+  { value: Country.Belarus, content: Country.Belarus },
+  { value: Country.Georgia, content: Country.Georgia },
+  { value: Country.Russia, content: Country.Russia }
 ];
 
 export const CountrySelect = memo((props: CountrySelectProps) => {
@@ -30,13 +31,22 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
   );
 
   return (
-    <Select
+    <ListBox
       className={classNames('', {}, [className])}
-      label="Укажите государство"
-      options={options}
-      value={value}
+      defaultValue="Выберите государство"
+      label="Выберите валюту"
       onChange={onChangeHandler}
+      items={options}
+      value={value}
       readonly={readonly}
     />
+    // <Select
+    //   className={classNames('', {}, [className])}
+    //   label="Укажите государство"
+    //   options={options}
+    //   value={value}
+    //   onChange={onChangeHandler}
+    //   readonly={readonly}
+    // />
   );
 });
