@@ -1,6 +1,7 @@
 import { Counter } from 'entities/Counter';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Dropdown } from 'shared/ui/Dropdown';
 import { Input } from 'shared/ui/Input/Input';
 import { ListBox } from 'shared/ui/ListBox';
 import { Page } from 'widgets/Page';
@@ -32,6 +33,15 @@ function MainPage() {
           { content: 'Диана', value: 'Диана' }
         ]}
         value={undefined}
+      />
+      <Dropdown
+        items={[
+          { content: 'Вася', onClick: () => {} },
+          { content: 'Коля', onClick: () => {} },
+          { content: 'Диана', onClick: () => {} }
+        ]}
+        trigger={'Дропани'}
+        direction="top left"
       />
       <Counter />
     </Page>

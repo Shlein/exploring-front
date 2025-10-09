@@ -37,6 +37,7 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
       items={options}
       value={value}
       readonly={readonly}
+      direction='top right'
     />
     // <Select
     //   className={classNames('', {}, [className])}
