@@ -547,6 +547,12 @@
       "userId": "1",
       "text": "haha",
       "id": "OYl_kOM"
+    },
+    {
+      "articleId": "18",
+      "userId": "1",
+      "text": "sfs",
+      "id": "mntZcSZ"
     }
   ],
   "users": [
@@ -570,7 +576,7 @@
       "id": "1",
       "firstName": "Данchik",
       "lastName": "Shlein",
-      "age": "26",
+      "age": 26,
       "currency": "EUR",
       "country": "Georgia",
       "city": "Gomsk",

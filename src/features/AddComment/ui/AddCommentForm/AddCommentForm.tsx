@@ -19,9 +19,8 @@ import {
   ReducersList,
   useDynamicModuleLoader
 } from 'shared/lib/useDynamicModuleLoader';
-
-import cls from './AddCommentForm.module.scss';
 import { HStack } from 'shared/ui/Stack';
+import cls from './AddCommentForm.module.scss';
 
 export interface AddCommentFormProps {
   className?: string;
@@ -58,22 +57,13 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
       max
       className={classNames(cls.AddCommentForm, {}, [className])}
     >
-      <div className={cls.control}>
-        {error && (
-          <Text
-            className={cls.error}
-            theme={TextTheme.ERROR}
-            text={error}
-          />
-        )}
-        <Input
-          label="Введите коммент"
-          className={cls.input}
-          placeholder="Комментарий"
-          value={text}
-          onChange={handleSetCommentText}
-        />
-      </div>
+      <Input
+        label="Введите коммент"
+        className={cls.input}
+        placeholder="Комментарий"
+        value={text}
+        onChange={handleSetCommentText}
+      />
       <Button onClick={onSendCommentHandler} className={cls.submit}>
         Отправить
       </Button>

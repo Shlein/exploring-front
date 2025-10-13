@@ -19,3 +19,4 @@ export {
   getArticlesPageType
 } from './model/selectors/articlesPageSelectors';
 export { ArticlePageFilters } from './ui/ArticlePageFilters/ArticlePageFilters';
+export { ArticleInfiniteList } from './ui/ArticleInfiniteList/ArticleInfiniteList';

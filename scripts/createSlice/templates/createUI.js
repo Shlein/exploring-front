@@ -2,7 +2,6 @@ const fs = require('fs/promises');
 const resolveRoot = require('../resolveRoot');
 const firstCharUpperCase = require('../firstCharUpperCase');
 const componentTemplate = require('./componentTemplate');
-const storyTemplate = require('./storyTemplate');
 const styleTemplate = require('./styleTemplate');
 
 module.exports = async (layer, sliceName) => {
@@ -26,8 +25,7 @@ module.exports = async (layer, sliceName) => {
         componentTemplate(componentName)
       );
       await fs.writeFile(
-        resolveUIPath(componentName, `${componentName}.stories.tsx`),
-        storyTemplate(layer, componentName)
+        resolveUIPath(componentName, `${componentName}.stories.tsx`)
       );
       await fs.writeFile(
         resolveUIPath(componentName, `${componentName}.module.scss`),

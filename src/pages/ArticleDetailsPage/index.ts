@@ -13,3 +13,5 @@ export { ArticleDetailsPageSchema } from './model/types/index';
 export { articleDetailsPageReducer } from './model/slice/index';
 
 export { ArticleDetailsPageHeader } from './ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+
+export { ArticleDetailsComments } from './ui/ArticleDetailsComments/ArticleDetailsComments';
