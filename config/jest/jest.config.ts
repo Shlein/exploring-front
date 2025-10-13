@@ -30,7 +30,19 @@ export default {
     '^features/(.*)$': '<rootDir>/src/features/$1',
     '^shared/(.*)$': '<rootDir>/src/shared/$1',
     '^app/(.*)$': '<rootDir>/src/app/$1'
-  }
+  },
+  reporters: [
+    'default',
+    [
+      'jest-html-reporters',
+      {
+        publicPath: '<rootDir>/reports/unit',
+        filename: 'report.html',
+        openReport: true,
+        inlineSourse: true
+      }
+    ]
+  ]
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
 
