@@ -1,11 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import {
-  MutableRefObject,
-  ReactNode,
-  UIEvent,
-  useEffect,
-  useRef
-} from 'react';
+import { MutableRefObject, ReactNode, UIEvent, useRef } from 'react';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll';
 import {
   useAppDispatch,
@@ -15,7 +9,7 @@ import { getUIScrollByPath, uiActions } from 'features/UI';
 import { useLocation } from 'react-router-dom';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
-
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import cls from './Page.module.scss';
 
 interface PageProps {
@@ -34,9 +28,9 @@ export const Page = (props: PageProps) => {
     getUIScrollByPath(state, pathname)
   );
 
-  useEffect(() => {
+  useInitialEffect(() => {
     wrapperRef.current.scrollTop = scrollPosition;
-  }, [scrollPosition]);
+  });
 
   useInfiniteScroll({
     callback: onScrollEnd,

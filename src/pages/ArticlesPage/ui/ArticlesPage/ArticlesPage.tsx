@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import {
   ReducersList,
   useDynamicModuleLoader
@@ -12,6 +12,7 @@ import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticles
 import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';
 import { useSearchParams } from 'react-router-dom';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -32,9 +33,9 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     dispatch(fetchNextArticlesPage());
   }, [dispatch]);
 
-  useEffect(() => {
+  useInitialEffect(() => {
     dispatch(initArticlesPage(searchParams));
-  }, [dispatch]);
+  });
 
   return (
     <Page

@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import {
   useAppDispatch,
   useAppSelector
@@ -25,6 +25,7 @@ import { fetchProfileData } from 'features/editableProfileCard/model/services/fe
 import { ValidateProfileError } from 'features/editableProfileCard';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { VStack } from 'shared/ui/Stack';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 
 const reducers: ReducersList = {
   profile: profileReducer
@@ -42,11 +43,11 @@ export const EditableProfileCard = memo(
 
     const dispatch = useAppDispatch();
 
-    useEffect(() => {
+    useInitialEffect(() => {
       if (id) {
         dispatch(fetchProfileData(id));
       }
-    }, []);
+    });
 
     const formData = useAppSelector(getProfileForm);
     const error = useAppSelector(getProfileError);
@@ -129,6 +130,7 @@ export const EditableProfileCard = memo(
               key={err}
               theme={TextTheme.ERROR}
               text={validateErrorTranslates[err]}
+              data-testid={'EditableProfileCard.Error'}
             />
           ))}
         <ProfileCard
