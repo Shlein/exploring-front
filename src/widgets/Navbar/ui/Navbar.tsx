@@ -8,13 +8,13 @@ import {
 } from 'app/providers/StoreProvider/config/hooks';
 import { getUserAuthData } from 'entities/User/selectors/userSelectors';
 import { logout } from 'entities/User/slice/userSlice';
-
-import cls from './Navbar.module.scss';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePaths } from 'shared/config/routerConfig/routerConfig';
 import { Dropdown } from 'shared/ui/Dropdown';
 import { Avatar } from 'shared/ui/Avatar';
+import { isUserAdmin, isUserManager } from 'entities/User';
+import cls from './Navbar.module.scss';
 
 interface NavbarProps {
   className?: string;
@@ -25,6 +25,9 @@ export const Navbar: FC<NavbarProps> = memo(props => {
   const dispatch = useAppDispatch();
   const [isAuthModal, setIsAuthModal] = useState(false);
   const authData = useAppSelector(getUserAuthData);
+  const isAdmin = useAppSelector(isUserAdmin);
+  const isManager = useAppSelector(isUserManager);
+  const isAdminPanelAvailable = isAdmin || isManager;
 
   const handleCloseAuth = () => {
     setIsAuthModal(false);
@@ -55,6 +58,14 @@ export const Navbar: FC<NavbarProps> = memo(props => {
         </AppLink>
         <Dropdown
           items={[
+            ...(isAdminPanelAvailable
+              ? [
+                  {
+                    content: 'Админка',
+                    href: RoutePaths.admin_panel
+                  }
+                ]
+              : []),
             {
               content: 'Профиль',
               href: RoutePaths.profile + authData.id

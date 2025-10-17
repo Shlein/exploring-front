@@ -20,9 +20,7 @@
       "views": 1022,
       "createdAt": "26.04.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -92,9 +90,7 @@
       "views": 5204,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -116,9 +112,7 @@
       "views": 94002,
       "createdAt": "26.02.2019",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -140,9 +134,7 @@
       "views": 10222,
       "createdAt": "24.01.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -164,9 +156,7 @@
       "views": 10222,
       "createdAt": "26.02.2020",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -188,9 +178,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -212,9 +200,7 @@
       "views": 100,
       "createdAt": "21.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -236,9 +222,7 @@
       "views": 102222,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -260,9 +244,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -284,9 +266,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -308,9 +288,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -332,9 +310,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -356,9 +332,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -380,9 +354,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -404,9 +376,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -428,9 +398,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -452,9 +420,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -476,9 +442,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "ECONOMICS"
-      ],
+      "type": ["ECONOMICS"],
       "blocks": [
         {
           "id": "1",
@@ -500,9 +464,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "SCIENCE"
-      ],
+      "type": ["SCIENCE"],
       "blocks": [
         {
           "id": "1",
@@ -560,14 +522,14 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": ["ADMIN"],
       "avatar": "https://i.pinimg.com/736x/19/84/51/1984513c5e878058cd1ae6b2dcde64f8.jpg"
     },
     {
       "id": "2",
       "username": "bakiHanma",
       "password": "123",
-      "role": "USER",
+      "roles": ["USER"],
       "avatar": "https://avatars.mds.yandex.net/i?id=d0eb7dd52e3572bc811cf2f826db115e_l-5008643-images-thumbs&n=13"
     }
   ],
