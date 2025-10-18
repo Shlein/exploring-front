@@ -18,10 +18,6 @@ function ProfilePage() {
   useDynamicModuleLoader(reducers);
   const { id } = useParams<{ id: string }>();
 
-  if (!id) {
-    return <Text text="Статья не найдена" />;
-  }
-
   return (
     <Page>
       <VStack max gap="16">

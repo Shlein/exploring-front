@@ -8,91 +8,36 @@ export default ({ config }: { config: webpack.Configuration }) => {
     build: '',
     html: '',
     entry: '',
-    src: path.resolve(__dirname, '..', '..', 'src')
+    src: path.resolve(__dirname, '..', '..', 'src'),
+    locales: '',
+    buildLocales: ''
   };
+  config!.resolve!.modules!.push(paths.src);
+  config!.resolve!.extensions!.push('.ts', '.tsx');
 
-  // Инициализация config.resolve, если его нет
-  if (!config.resolve) {
-    config.resolve = {};
-  }
+  // eslint-disable-next-line no-param-reassign
+  // @ts-ignore
+  config!.module!.rules = config.module!.rules!.map(
+    (rule: RuleSetRule) => {
+      if (/svg/.test(rule.test as string)) {
+        return { ...rule, exclude: /\.svg$/i };
+      }
 
-  // Инициализация config.resolve.modules, если его нет
-  if (!config.resolve.modules) {
-    config.resolve.modules = [];
-  }
-  config.resolve.modules.push(paths.src);
-
-  // Инициализация config.resolve.extensions, если его нет
-  if (!config.resolve.extensions) {
-    config.resolve.extensions = [];
-  }
-  config.resolve.extensions.push('.ts', '.tsx');
-
-  // Инициализация config.module, если его нет
-  if (!config.module) {
-    config.module = { rules: [] };
-  }
-
-  // Инициализация config.module.rules, если его нет
-  if (!config.module.rules) {
-    config.module.rules = [];
-  }
-
-  config.module.rules = config.module.rules.map(rule => {
-    // Игнорируем falsy-значения (кроме объектов и строки '...')
-    if (
-      !rule ||
-      typeof rule === 'boolean' ||
-      typeof rule === 'number' ||
-      rule === ''
-    ) {
-      return rule;
+      return rule; 
     }
+  );
 
-    // Обрабатываем строку '...' (специальное значение Webpack)
-    if (rule === '...') {
-      return rule;
-    }
-
-    // Обрабатываем RuleSetRule
-    if (
-      rule.test &&
-      typeof rule.test === 'string' &&
-      /svg/.test(rule.test)
-    ) {
-      return { ...rule, exclude: /\.svg$/i };
-    }
-
-    return rule;
-  });
-
-  // Обработка правил для SVG
-  config.module.rules = (
-    config.module.rules as Array<RuleSetRule | '...'>
-  ).map(rule => {
-    if (rule === '...') return rule;
-    if (rule.test && /svg/.test(rule.test as string)) {
-      return { ...rule, exclude: /\.svg$/i };
-    }
-    return rule;
-  });
-
-  config.module.rules.push({
+  config!.module!.rules.push({
     test: /\.svg$/,
     use: ['@svgr/webpack']
   });
+  config!.module!.rules.push(buildCssLoader(true));
 
-  config.module.rules.push(buildCssLoader(true));
-
-  // Инициализация config.plugins, если его нет
-  if (!config.plugins) {
-    config.plugins = [];
-  }
-
-  config.plugins.push(
+  config!.plugins!.push(
     new DefinePlugin({
-      __IS_DEV__: true,
-      __API__: 
+      __IS_DEV__: JSON.stringify(true),
+      __API__: JSON.stringify('https://testapi.ru'),
+      __PROJECT__: JSON.stringify('storybook')
     })
   );
 

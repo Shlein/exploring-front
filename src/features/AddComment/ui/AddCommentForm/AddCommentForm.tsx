@@ -14,7 +14,6 @@ import {
   addCommentActions,
   addCommentReducer
 } from 'features/AddComment/model/slice/addCommentSlice';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
 import {
   ReducersList,
   useDynamicModuleLoader

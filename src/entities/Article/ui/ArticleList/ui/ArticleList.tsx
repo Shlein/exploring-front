@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './ArticleList.module.scss';
 import {
   Article,
   ArticleView
@@ -8,6 +7,7 @@ import { ArticleListItem } from '../../ArticleListItem';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { ArticleListItemSkeleton } from '../../ArticleListItem/ui/ArticleListItemSkeleton';
 import { Text, TextSize } from 'shared/ui/Text/Text';
+import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
   className?: string;
