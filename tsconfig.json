@@ -33,7 +33,8 @@
     // можно писать такой
     // import React from 'react';
     "allowSyntheticDefaultImports": true,
-    "strictBindCallApply": true
+    "strictBindCallApply": true,
+    "isolatedModules": true
   },
   "ts-node": {
     "compilerOptions": {

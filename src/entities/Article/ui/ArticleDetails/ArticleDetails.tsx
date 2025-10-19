@@ -19,17 +19,14 @@ import {
   getArticleDetailsError,
   getArticleDetailsIsLoading
 } from 'entities/Article/model/selectors/articleDetailsSelectors';
-import {
-  ArticleBlock,
-  ArticleBlockType
-} from 'entities/Article/model/types/ArticleDetailsTypes';
 import { Skeleton } from 'shared/ui/Skeleton';
 import { Avatar } from 'shared/ui/Avatar';
 import { Icon } from 'shared/ui/Icon';
 import { fetchArticleById } from 'entities/Article/services/fetchArticleById/fetchArticleById';
-
-import cls from './ArticleDetails.module.scss';
 import { HStack, VStack } from 'shared/ui/Stack';
+import { ArticleBlock } from 'entities/Article/model/types/ArticleDetailsTypes';
+import { ArticleBlockType } from 'entities/Article/consts/consts';
+import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
   className?: string;

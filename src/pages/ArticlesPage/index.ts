@@ -3,7 +3,7 @@ export {
   articlesPageActions,
   articlesPageReducer
 } from './model/slice/articlesPageSlice';
-export { ArticlesPageSchema } from './model/types/articlesPageSchema';
+export type { ArticlesPageSchema } from './model/types/articlesPageSchema';
 export { fetchArticlesList } from './model/services/fetchArticlesList/fetchArticlesList';
 export {
   getArticlesPageError,

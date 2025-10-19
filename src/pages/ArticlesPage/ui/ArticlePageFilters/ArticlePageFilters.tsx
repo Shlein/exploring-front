@@ -5,7 +5,9 @@ import {
 } from 'app/providers/StoreProvider/config/hooks';
 import { useCallback } from 'react';
 import {
+  ArticleSortField,
   ArticleSortSelector,
+  ArticleType,
   ArticleTypeTabs,
   ArticleView,
   ArticleViewToggler
@@ -21,15 +23,9 @@ import {
 import { Card } from 'shared/ui/Card';
 import { Input } from 'shared/ui/Input/Input';
 import { SortOrder } from 'shared/types';
-import {
-  ArticleSortField,
-  ArticleType
-} from 'entities/Article/model/types/ArticleDetailsTypes';
-
-import cls from './ArticlePageFilters.module.scss';
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
-import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
+import cls from './ArticlePageFilters.module.scss';
 
 interface ArticlePageFiltersProps {
   className?: string;

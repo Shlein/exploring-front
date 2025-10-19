@@ -1,1 +1,1 @@
-export { Comment } from './model/types/CommentTypes';
+export type { Comment } from './model/types/CommentTypes';

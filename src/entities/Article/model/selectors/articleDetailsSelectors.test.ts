@@ -4,10 +4,6 @@ import {
   getArticleDetailsError,
   getArticleDetailsIsLoading
 } from './articleDetailsSelectors';
-import {
-  ArticleBlockType,
-  ArticleType
-} from '../types/ArticleDetailsTypes';
 
 describe('getArticleDetailsSelectors.test', () => {
   test('get article data', () => {

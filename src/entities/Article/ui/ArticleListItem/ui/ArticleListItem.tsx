@@ -1,9 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
   Article,
-  ArticleBlockType,
-  ArticleTextBlock,
-  ArticleView
+  ArticleTextBlock
 } from 'entities/Article/model/types/ArticleDetailsTypes';
 import { Text } from 'shared/ui/Text/Text';
 import { Icon } from 'shared/ui/Icon';
@@ -19,6 +17,10 @@ import { HTMLAttributeAnchorTarget, useCallback } from 'react';
 import { RoutePaths } from 'shared/config/routerConfig/routerConfig';
 import { useNavigate } from 'react-router-dom';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
+import {
+  ArticleBlockType,
+  ArticleView
+} from 'entities/Article/consts/consts';
 
 interface ArticleListItemProps {
   className?: string;

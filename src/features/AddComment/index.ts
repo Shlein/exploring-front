@@ -1,4 +1,4 @@
-export { AddCommentSchema } from './model/types/addCommentTypes';
+export type { AddCommentSchema } from './model/types/addCommentTypes';
 
 export {
   getAddCommentText,
