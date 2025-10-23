@@ -56,6 +56,7 @@ export const Text = (props: TextProps) => {
     [cls[align]]: true,
     [cls[size]]: true
   };
+
   return (
     <div className={classNames(cls.Text, mods, [className])}>
       {title && (
