@@ -1,40 +1,32 @@
 import { Menu } from '@headlessui/react';
-// import { Fragment } from 'react/jsx-runtime';
-
-import cls from './Dropdown.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Fragment, ReactNode } from 'react';
-import { Button } from 'shared/ui/Button';
 import { DropdownDirection } from 'shared/types/ui';
+import popupCls from '../../../styles/popups.module.scss';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { mapDirectionClass } from 'shared/ui/Popups/styles/consts';
+import cls from './Dropdown.module.scss';
 
-export interface IDropdownItem {
-  onClick?: () => void;
-  content?: ReactNode;
+export interface DropdownItem {
   disabled?: boolean;
+  content?: ReactNode;
+  onClick?: () => void;
   href?: string;
 }
 
 interface DropdownProps {
   className?: string;
-  items: IDropdownItem[];
-  trigger?: ReactNode;
+  items: DropdownItem[];
   direction?: DropdownDirection;
+  trigger: ReactNode;
 }
 
-const mapDirectionClass: Record<DropdownDirection, string> = {
-  'bottom left': cls.optionsBottomLeft,
-  'bottom right': cls.optionsBottomRight,
-  'top right': cls.optionsTopRight,
-  'top left': cls.optionsTopLeft
-};
-
-export const Dropdown: React.FC<DropdownProps> = props => {
+export function Dropdown(props: DropdownProps) {
   const {
     className,
     trigger,
     items,
-    direction = 'bottom left'
+    direction = 'bottom right'
   } = props;
 
   const menuClasses = [mapDirectionClass[direction]];
@@ -42,18 +34,23 @@ export const Dropdown: React.FC<DropdownProps> = props => {
   return (
     <Menu
       as="div"
-      className={classNames(cls.Dropdown, {}, [className])}
+      className={classNames(cls.Dropdown, {}, [
+        className,
+        popupCls.popup
+      ])}
     >
-      <Menu.Button className={cls.trigger}>{trigger}</Menu.Button>
+      <Menu.Button className={popupCls.trigger}>
+        {trigger}
+      </Menu.Button>
       <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>
         {items.map(item => {
           const content = ({ active }: { active: boolean }) => (
             <button
-              type={'button'}
-              onClick={item.onClick}
+              type="button"
               disabled={item.disabled}
+              onClick={item.onClick}
               className={classNames(cls.item, {
-                [cls.active]: active
+                [popupCls.active]: active
               })}
             >
               {item.content}
@@ -66,7 +63,6 @@ export const Dropdown: React.FC<DropdownProps> = props => {
                 as={AppLink}
                 to={item.href}
                 disabled={item.disabled}
-                key={String(item.content)}
               >
                 {content}
               </Menu.Item>
@@ -74,11 +70,7 @@ export const Dropdown: React.FC<DropdownProps> = props => {
           }
 
           return (
-            <Menu.Item
-              as={Fragment}
-              disabled={item.disabled}
-              key={String(item.content)}
-            >
+            <Menu.Item as={Fragment} disabled={item.disabled}>
               {content}
             </Menu.Item>
           );
@@ -86,4 +78,4 @@ export const Dropdown: React.FC<DropdownProps> = props => {
       </Menu.Items>
     </Menu>
   );
-};
+}

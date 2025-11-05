@@ -4,7 +4,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 
 import cls from './CurrencySelect.module.scss';
 import { Country } from '../model/types/country';
-import { ListBox } from 'shared/ui/ListBox';
+import { ListBox } from 'shared/ui/Popups/ui/ListBox';
 
 interface CountrySelectProps {
   className?: string;

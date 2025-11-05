@@ -1,7 +1,7 @@
 import { Currency } from '../model/types/currency';
 import { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ListBox } from 'shared/ui/ListBox';
+import { ListBox } from 'shared/ui/Popups/ui/ListBox';
 
 import cls from './CurrencySelect.module.scss';
 
@@ -37,7 +37,7 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
       items={options}
       value={value}
       readonly={readonly}
-      direction='top right'
+      direction="top right"
     />
     // <Select
     //   className={classNames('', {}, [className])}

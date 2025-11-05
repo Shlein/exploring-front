@@ -1,34 +1,18 @@
-.ListBox {
+.popup {
   position: relative;
 }
 
 .trigger {
   background: none;
-  border: none;
   outline: none;
-  padding: 0;
   margin: 0;
-}
-
-.options {
-  position: absolute;
-  background: var(--listbox-bg);
-  width: 100%;
-  z-index: 10000;
-  border-radius: 12px;
-  box-shadow: 4px 4px 8px var(--listbox-bg);
-}
-
-.item {
-  padding: 5px 20px;
+  padding: 0;
+  border: none;
+  cursor: pointer;
 }
 
 .active {
   background: var(--inverted-primary-color);
-}
-
-.disabled {
-  opacity: 0.7;
 }
 
 .optionsBottomLeft {
@@ -38,7 +22,7 @@
 
 .optionsBottomRight {
   top: 100%;
-  right: 0;
+  left: 0;
 }
 
 .optionsTopRight {
@@ -47,6 +31,10 @@
 }
 
 .optionsTopLeft {
+  right: 0;
   bottom: 100%;
-  left: 0;
+}
+
+.disabled {
+  opacity: 0.7;
 }
