@@ -1,4 +1,4 @@
-import { FC, memo, useState } from 'react';
+import { FC, memo, useCallback, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ThemeButton } from 'shared/ui/Button';
 import { LoginModal } from 'features/AuthByUserName';
@@ -22,6 +22,7 @@ import { NotificationList } from 'entities/Notification';
 import cls from './Navbar.module.scss';
 import { NotificationButton } from 'features/notificationButton';
 import { AvatarDropdown } from 'features/avatarDropdown';
+import { Drawer } from 'shared/ui/Drawer/Drawer';
 
 interface NavbarProps {
   className?: string;
@@ -39,6 +40,16 @@ export const Navbar: FC<NavbarProps> = memo(props => {
   const handleOpenAuth = () => {
     setIsAuthModal(true);
   };
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const setOpenDrawer = useCallback(() => {
+    setIsOpen(true);
+  }, [isOpen]);
+
+  const setCloseDrawer = useCallback(() => {
+    setIsOpen(false);
+  }, [isOpen]);
 
   if (authData) {
     return (

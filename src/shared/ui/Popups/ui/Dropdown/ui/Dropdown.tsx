@@ -49,6 +49,7 @@ export function Dropdown(props: DropdownProps) {
               type="button"
               disabled={item.disabled}
               onClick={item.onClick}
+              key={item.href}
               className={classNames(cls.item, {
                 [popupCls.active]: active
               })}
@@ -62,6 +63,7 @@ export function Dropdown(props: DropdownProps) {
               <Menu.Item
                 as={AppLink}
                 to={item.href}
+                key={item.href}
                 disabled={item.disabled}
               >
                 {content}

@@ -14,7 +14,7 @@ interface SidebarProps {
 }
 
 export const Sidebar: FC<SidebarProps> = memo(props => {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
   const sidebarItemsList = useAppSelector(getSidebarItems);
   const toggleCollapse = () => setCollapsed(prev => !prev);
 
