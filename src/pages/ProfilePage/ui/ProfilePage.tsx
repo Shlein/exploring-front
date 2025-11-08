@@ -1,13 +1,13 @@
 import {
   ReducersList,
   useDynamicModuleLoader
-} from 'shared/lib/useDynamicModuleLoader';
-import { Page } from 'widgets/Page';
-import { VStack } from 'shared/ui/Stack';
-import { EditableProfileCard } from 'features/editableProfileCard';
+} from '@/shared/lib/useDynamicModuleLoader';
+import { Page } from '@/widgets/Page';
+import { VStack } from '@/shared/ui/Stack';
+import { EditableProfileCard } from '@/features/editableProfileCard';
 import { useParams } from 'react-router-dom';
-import { Text } from 'shared/ui/Text/Text';
-import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice';
+import { Text } from '@/shared/ui/Text/Text';
+import { profileReducer } from '@/features/editableProfileCard/model/slice/profileSlice';
 import cls from './ProfilePage.module.scss';
 
 const reducers: ReducersList = {

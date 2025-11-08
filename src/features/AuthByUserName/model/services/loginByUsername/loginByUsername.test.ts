@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { loginByUsername } from './loginByUsername';
-import { AppDispatch } from 'app/providers/StoreProvider/config/store';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { setAuthData } from 'entities/User/slice/userSlice';
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { AppDispatch } from '@/app/providers/StoreProvider/config/store';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { setAuthData } from '@/entities/User/slice/userSlice';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
 describe('loginByUsername.test', () => {
   test('success login', async () => {

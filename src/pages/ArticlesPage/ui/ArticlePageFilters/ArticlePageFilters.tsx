@@ -1,8 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import {
   useAppDispatch,
   useAppSelector
-} from 'app/providers/StoreProvider/config/hooks';
+} from '@/app/providers/StoreProvider/config/hooks';
 import { useCallback } from 'react';
 import {
   ArticleSortField,
@@ -11,20 +11,20 @@ import {
   ArticleTypeTabs,
   ArticleView,
   ArticleViewToggler
-} from 'entities/Article';
-import { articlesPageActions } from 'pages/ArticlesPage/model/slice/articlesPageSlice';
+} from '@/entities/Article';
+import { articlesPageActions } from '@/pages/ArticlesPage/model/slice/articlesPageSlice';
 import {
   getArticlesPageOrder,
   getArticlesPageSearch,
   getArticlesPageSort,
   getArticlesPageType,
   getArticlesPageView
-} from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
-import { Card } from 'shared/ui/Card';
-import { Input } from 'shared/ui/Input/Input';
-import { SortOrder } from 'shared/types';
-import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
-import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+} from '@/pages/ArticlesPage/model/selectors/articlesPageSelectors';
+import { Card } from '@/shared/ui/Card';
+import { Input } from '@/shared/ui/Input/Input';
+import { SortOrder } from '@/shared/types';
+import { fetchArticlesList } from '@/pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import cls from './ArticlePageFilters.module.scss';
 
 interface ArticlePageFiltersProps {

@@ -1,13 +1,13 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppSelector } from 'app/providers/StoreProvider/config/hooks';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppSelector } from '@/app/providers/StoreProvider/config/hooks';
 import {
   getArticlesPageIsLoading,
   getArticlesPageError,
   getArticlesPageView
-} from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
-import { getArticles } from 'pages/ArticlesPage/model/slice/articlesPageSlice';
-import { ArticleList } from 'entities/Article';
-import { Text } from 'shared/ui/Text/Text';
+} from '@/pages/ArticlesPage/model/selectors/articlesPageSelectors';
+import { getArticles } from '@/pages/ArticlesPage/model/slice/articlesPageSlice';
+import { ArticleList } from '@/entities/Article';
+import { Text } from '@/shared/ui/Text/Text';
 
 interface ArticleInfiniteListProps {
   className?: string;

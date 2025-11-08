@@ -1,10 +1,10 @@
-import { Select } from 'shared/ui/Select';
+import { Select } from '@/shared/ui/Select';
 import { memo, useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './CurrencySelect.module.scss';
 import { Country } from '../model/types/country';
-import { ListBox } from 'shared/ui/Popups/ui/ListBox';
+import { ListBox } from '@/shared/ui/Popups/ui/ListBox';
 
 interface CountrySelectProps {
   className?: string;

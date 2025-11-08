@@ -1,31 +1,31 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text';
-import EyeIcon from 'shared/assets/icons/eye.svg';
-import CalendarIcon from 'shared/assets/icons/calendar.svg';
-import { ArticleCodeBlockComponent } from 'entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { ArticleImageBlockComponent } from 'entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
-import { ArticleTextBlockComponent } from 'entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { ArticleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
+import { Text, TextAlign, TextSize } from '@/shared/ui/Text/Text';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
+import CalendarIcon from '@/shared/assets/icons/calendar.svg';
+import { ArticleCodeBlockComponent } from '@/entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleImageBlockComponent } from '@/entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '@/entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { ArticleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';
 import {
   ReducersList,
   useDynamicModuleLoader
-} from 'shared/lib/useDynamicModuleLoader';
-import { useAppDispatch } from 'app/providers/StoreProvider/config/hooks';
+} from '@/shared/lib/useDynamicModuleLoader';
+import { useAppDispatch } from '@/app/providers/StoreProvider/config/hooks';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading
-} from 'entities/Article/model/selectors/articleDetailsSelectors';
-import { Skeleton } from 'shared/ui/Skeleton';
-import { Avatar } from 'shared/ui/Avatar';
-import { Icon } from 'shared/ui/Icon';
-import { fetchArticleById } from 'entities/Article/services/fetchArticleById/fetchArticleById';
-import { HStack, VStack } from 'shared/ui/Stack';
-import { ArticleBlock } from 'entities/Article/model/types/ArticleDetailsTypes';
-import { ArticleBlockType } from 'entities/Article/consts/consts';
+} from '@/entities/Article/model/selectors/articleDetailsSelectors';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Icon } from '@/shared/ui/Icon';
+import { fetchArticleById } from '@/entities/Article/services/fetchArticleById/fetchArticleById';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { ArticleBlock } from '@/entities/Article/model/types/ArticleDetailsTypes';
+import { ArticleBlockType } from '@/entities/Article/consts/consts';
 import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {

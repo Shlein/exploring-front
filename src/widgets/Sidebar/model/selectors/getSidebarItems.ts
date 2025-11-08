@@ -1,6 +1,6 @@
-import { RoutePaths } from 'shared/config/routerConfig/routerConfig';
+import { RoutePaths } from '@/shared/config/routerConfig/routerConfig';
 import { createSelector } from '@reduxjs/toolkit';
-import { getUserAuthData } from 'entities/User/selectors/userSelectors';
+import { getUserAuthData } from '@/entities/User/selectors/userSelectors';
 import { ISidebarItem } from '../types/sidebar';
 
 export const getSidebarItems = createSelector(

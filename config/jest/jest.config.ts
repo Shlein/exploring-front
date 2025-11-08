@@ -29,7 +29,8 @@ export default {
     '^entities/(.*)$': '<rootDir>/src/entities/$1',
     '^features/(.*)$': '<rootDir>/src/features/$1',
     '^shared/(.*)$': '<rootDir>/src/shared/$1',
-    '^app/(.*)$': '<rootDir>/src/app/$1'
+    '^app/(.*)$': '<rootDir>/src/app/$1',
+    '^@/(.*)$': '<rootDir>src/$1'
   },
   reporters: [
     'default',

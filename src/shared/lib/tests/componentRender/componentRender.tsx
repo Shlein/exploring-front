@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import {
   StateSchema,
   StoreProvider
-} from 'app/providers/StoreProvider';
+} from '@/app/providers/StoreProvider';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 
 export interface componentRenderOptions {

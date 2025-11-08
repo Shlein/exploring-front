@@ -1,11 +1,11 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleViewToggler.module.scss';
-import IconGrid from 'shared/assets/icons/grid.svg';
-import IconList from 'shared/assets/icons/list.svg';
-import { Button, ThemeButton } from 'shared/ui/Button';
-import { Icon } from 'shared/ui/Icon';
+import IconGrid from '@/shared/assets/icons/grid.svg';
+import IconList from '@/shared/assets/icons/list.svg';
+import { Button, ThemeButton } from '@/shared/ui/Button';
+import { Icon } from '@/shared/ui/Icon';
 import { memo, useCallback } from 'react';
-import { ArticleView } from 'entities/Article/consts/consts';
+import { ArticleView } from '@/entities/Article/consts/consts';
 
 interface ArticleViewTogglerProps {
   className?: string;

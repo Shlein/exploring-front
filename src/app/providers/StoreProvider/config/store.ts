@@ -6,12 +6,12 @@ import {
 } from '@reduxjs/toolkit';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 import { createReducerManager } from './reducerManager';
-import { CounterReducer } from 'entities/Counter';
-import { UserReducer } from 'entities/User';
-import { $api } from 'shared/api/api';
+import { CounterReducer } from '@/entities/Counter';
+import { UserReducer } from '@/entities/User';
+import { $api } from '@/shared/api/api';
 import { NavigateOptions, To } from 'react-router-dom';
-import { uiReducer } from 'features/UI';
-import { rtkApi } from 'shared/api/rtkApi';
+import { uiReducer } from '@/features/UI';
+import { rtkApi } from '@/shared/api/rtkApi';
 
 export function createReduxStore(
   initialState?: StateSchema,

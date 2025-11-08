@@ -1,8 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ThemeButton } from 'shared/ui/Button';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ThemeButton } from '@/shared/ui/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { counterSlice } from '../slice/CounterSlice';
-import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
+import { StateSchema } from '@/app/providers/StoreProvider/config/StateSchema';
 
 interface CounterProps {
   className?: string;

@@ -1,7 +1,7 @@
 import { Currency } from '../model/types/currency';
 import { memo, useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { ListBox } from 'shared/ui/Popups/ui/ListBox';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ListBox } from '@/shared/ui/Popups/ui/ListBox';
 
 import cls from './CurrencySelect.module.scss';
 

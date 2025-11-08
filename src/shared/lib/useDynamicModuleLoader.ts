@@ -3,8 +3,8 @@ import {
   ReduxStoreWithManager,
   StateSchema,
   StateSchemaKey
-} from 'app/providers/StoreProvider/config/StateSchema';
-import { useAppDispatch } from 'app/providers/StoreProvider/config/hooks';
+} from '@/app/providers/StoreProvider/config/StateSchema';
+import { useAppDispatch } from '@/app/providers/StoreProvider/config/hooks';
 import { useEffect } from 'react';
 import { useStore } from 'react-redux';
 

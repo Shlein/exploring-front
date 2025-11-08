@@ -1,14 +1,14 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Avatar } from 'shared/ui/Avatar';
-import { Dropdown } from 'shared/ui/Popups';
-import { RoutePaths } from 'shared/config/routerConfig/routerConfig';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Dropdown } from '@/shared/ui/Popups';
+import { RoutePaths } from '@/shared/config/routerConfig/routerConfig';
 import {
   useAppDispatch,
   useAppSelector
-} from 'app/providers/StoreProvider/config/hooks';
-import { logout } from 'entities/User/slice/userSlice';
-import { isUserAdmin, isUserManager } from 'entities/User';
-import { getUserAuthData } from 'entities/User/selectors/userSelectors';
+} from '@/app/providers/StoreProvider/config/hooks';
+import { logout } from '@/entities/User/slice/userSlice';
+import { isUserAdmin, isUserManager } from '@/entities/User';
+import { getUserAuthData } from '@/entities/User/selectors/userSelectors';
 import cls from './AvatarDropdown.module.scss';
 
 interface AvatarDropdownProps {

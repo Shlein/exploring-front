@@ -1,24 +1,24 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ThemeButton } from 'shared/ui/Button';
-import { Input } from 'shared/ui/Input/Input';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ThemeButton } from '@/shared/ui/Button';
+import { Input } from '@/shared/ui/Input/Input';
 import {
   LoginReducer,
   setLoginPassword,
   setLoginUsername
-} from 'features/AuthByUserName/model/slice/loginSlice';
+} from '@/features/AuthByUserName/model/slice/loginSlice';
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
-import { loginByUsername } from 'features/AuthByUserName/model/services/loginByUsername/loginByUsername';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { useAppDispatch } from 'app/providers/StoreProvider/config/hooks';
-import { getLoginError } from 'features/AuthByUserName/model/selectors/getLoginError';
-import { getLoginUsername } from 'features/AuthByUserName/model/selectors/getLoginUsername';
-import { getLoginPassword } from 'features/AuthByUserName/model/selectors/getLoginPassword';
-import { getLoginLoading } from 'features/AuthByUserName/model/selectors/getLoginLoading';
+import { loginByUsername } from '@/features/AuthByUserName/model/services/loginByUsername/loginByUsername';
+import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { useAppDispatch } from '@/app/providers/StoreProvider/config/hooks';
+import { getLoginError } from '@/features/AuthByUserName/model/selectors/getLoginError';
+import { getLoginUsername } from '@/features/AuthByUserName/model/selectors/getLoginUsername';
+import { getLoginPassword } from '@/features/AuthByUserName/model/selectors/getLoginPassword';
+import { getLoginLoading } from '@/features/AuthByUserName/model/selectors/getLoginLoading';
 import {
   ReducersList,
   useDynamicModuleLoader
-} from 'shared/lib/useDynamicModuleLoader';
+} from '@/shared/lib/useDynamicModuleLoader';
 
 import cls from './LoginForm.module.scss';
 

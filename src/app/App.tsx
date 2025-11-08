@@ -1,16 +1,16 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { Suspense, useEffect } from 'react';
-import { Navbar } from 'widgets/Navbar';
-import { Sidebar } from 'widgets/Sidebar';
-import { PageLoader } from 'shared/ui/PageLoader';
+import { Navbar } from '@/widgets/Navbar';
+import { Sidebar } from '@/widgets/Sidebar';
+import { PageLoader } from '@/shared/ui/PageLoader';
 import { AppRouter } from './providers/router';
 import { useTheme } from './providers/ThemeProvider';
-import { initAuthData } from 'entities/User/slice/userSlice';
+import { initAuthData } from '@/entities/User/slice/userSlice';
 import {
   useAppDispatch,
   useAppSelector
 } from './providers/StoreProvider/config/hooks';
-import { getUserInited } from 'entities/User/selectors/getUserInited';
+import { getUserInited } from '@/entities/User/selectors/getUserInited';
 
 function App() {
   const { theme } = useTheme();

@@ -1,16 +1,16 @@
-import { Mods, classNames } from 'shared/lib/classNames/classNames';
-import { Text, TextAlign } from 'shared/ui/Text/Text';
-import { useAppDispatch } from 'app/providers/StoreProvider/config/hooks';
-import { Input } from 'shared/ui/Input/Input';
+import { Mods, classNames } from '@/shared/lib/classNames/classNames';
+import { Text, TextAlign } from '@/shared/ui/Text/Text';
+import { useAppDispatch } from '@/app/providers/StoreProvider/config/hooks';
+import { Input } from '@/shared/ui/Input/Input';
 import { Profile } from '../../model/types/profileTypes';
-import { Loader } from 'shared/ui/Loader/ui/Loader';
+import { Loader } from '@/shared/ui/Loader/ui/Loader';
 
 import cls from './ProfileCard.module.scss';
-import { Avatar } from 'shared/ui/Avatar';
-import { Select } from 'shared/ui/Select';
-import { Currency, CurrencySelect } from 'entities/Currency';
-import { Country, CountrySelect } from 'entities/Country';
-import { HStack, VStack } from 'shared/ui/Stack';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Select } from '@/shared/ui/Select';
+import { Currency, CurrencySelect } from '@/entities/Currency';
+import { Country, CountrySelect } from '@/entities/Country';
+import { HStack, VStack } from '@/shared/ui/Stack';
 
 interface ProfileCardProps {
   className?: string;
