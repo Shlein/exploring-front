@@ -1,6 +1,6 @@
 import { FC, memo, useCallback, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ThemeButton } from '@/shared/ui/Button';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { LoginModal } from '@/features/AuthByUserName';
 import {
   useAppDispatch,
@@ -77,7 +77,7 @@ export const Navbar: FC<NavbarProps> = memo(props => {
   return (
     <div className={classNames(cls.Navbar, {}, [className])}>
       <div className={cls.links}>
-        <Button theme={ThemeButton.CLEAR} onClick={handleOpenAuth}>
+        <Button theme={ButtonTheme.CLEAR} onClick={handleOpenAuth}>
           Войти
         </Button>
         <LoginModal

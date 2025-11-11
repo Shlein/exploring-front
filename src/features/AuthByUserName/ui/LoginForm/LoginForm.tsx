@@ -1,5 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ThemeButton } from '@/shared/ui/Button';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input/Input';
 import {
   LoginReducer,
@@ -84,7 +84,7 @@ const LoginForm = (props: LoginFormProps) => {
       />
       <Button
         onClick={onLoginClick}
-        theme={ThemeButton.OUTLINE}
+        theme={ButtonTheme.OUTLINE}
         className={cls.submitButton}
         disabled={isLoading}
       >

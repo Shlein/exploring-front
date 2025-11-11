@@ -5,7 +5,7 @@ import { NotificationList } from '@/entities/Notification';
 import { Popover } from '@/shared/ui/Popups';
 import { Drawer } from '@/shared/ui/Drawer/Drawer';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { Button, ThemeButton } from '@/shared/ui/Button';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
 import cls from './NotificationButton.module.scss';
 
@@ -27,7 +27,7 @@ export const NotificationButton = memo(
     }, []);
 
     const trigger = (
-      <Button onClick={onOpenDrawer} theme={ThemeButton.CLEAR}>
+      <Button onClick={onOpenDrawer} theme={ButtonTheme.CLEAR}>
         <Icon Svg={NotificationIcon} inverted />
       </Button>
     );

@@ -10,7 +10,7 @@ import { Card } from '@/shared/ui/Card';
 import { useHover } from '@/shared/lib/hooks/useHover';
 import { Avatar } from '@/shared/ui/Avatar';
 import { ArticleTextBlockComponent } from '../../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { Button, ThemeButton } from '@/shared/ui/Button';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 
 import cls from './ArticleListItem.module.scss';
 import { HTMLAttributeAnchorTarget, useCallback } from 'react';
@@ -88,7 +88,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
               target={target}
               to={RoutePaths.article_details + article.id}
             >
-              <Button theme={ThemeButton.OUTLINE}>
+              <Button theme={ButtonTheme.OUTLINE}>
                 Читать далее...
               </Button>
             </AppLink>

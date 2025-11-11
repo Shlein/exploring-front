@@ -43,13 +43,12 @@ export function Dropdown(props: DropdownProps) {
         {trigger}
       </Menu.Button>
       <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>
-        {items.map(item => {
+        {items.map((item, index) => {
           const content = ({ active }: { active: boolean }) => (
             <button
               type="button"
               disabled={item.disabled}
               onClick={item.onClick}
-              key={item.href}
               className={classNames(cls.item, {
                 [popupCls.active]: active
               })}
@@ -63,7 +62,7 @@ export function Dropdown(props: DropdownProps) {
               <Menu.Item
                 as={AppLink}
                 to={item.href}
-                key={item.href}
+                key={'dropdown-key' + index}
                 disabled={item.disabled}
               >
                 {content}
@@ -72,7 +71,11 @@ export function Dropdown(props: DropdownProps) {
           }
 
           return (
-            <Menu.Item as={Fragment} disabled={item.disabled}>
+            <Menu.Item
+              key={'dropdown-key' + index}
+              as={Fragment}
+              disabled={item.disabled}
+            >
               {content}
             </Menu.Item>
           );

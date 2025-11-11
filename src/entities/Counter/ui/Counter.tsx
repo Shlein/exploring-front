@@ -1,5 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ThemeButton } from '@/shared/ui/Button';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { counterSlice } from '../slice/CounterSlice';
 import { StateSchema } from '@/app/providers/StoreProvider/config/StateSchema';
@@ -26,10 +26,10 @@ export const Counter = (props: CounterProps) => {
   return (
     <div className={classNames(className)}>
       <h1 style={{ color: 'white' }}>value = {counterValue}</h1>
-      <Button theme={ThemeButton.CLEAR} onClick={decrement}>
+      <Button theme={ButtonTheme.CLEAR} onClick={decrement}>
         -
       </Button>
-      <Button theme={ThemeButton.CLEAR} onClick={increment}>
+      <Button theme={ButtonTheme.CLEAR} onClick={increment}>
         +
       </Button>
     </div>
