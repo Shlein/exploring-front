@@ -64,7 +64,7 @@ export default tseslint.config(
       'react/no-deprecated': 'warn',
 
       // Правильное имя правила для вашего плагина
-      'folders-control-fsd/path-checker': 'error', // ← исправлено имя правила
+      'folders-control-fsd/path-checker': ['error', { alias: '@' }], // ← исправлено имя правила
 
       // Typescript-специфичные правила
       '@typescript-eslint/no-explicit-any': 'error',
