@@ -65,6 +65,10 @@ export default tseslint.config(
 
       // Правильное имя правила для вашего плагина
       'folders-control-fsd/path-checker': ['error', { alias: '@' }], // ← исправлено имя правила
+      'folders-control-fsd/public-api-imports': [
+        'error',
+        { alias: '@' }
+      ], // ← исправлено имя правила
 
       // Typescript-специфичные правила
       '@typescript-eslint/no-explicit-any': 'error',
